@@ -21,12 +21,15 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           // backgroundColor: const Color.fromRGBO(0, 200, 255, 1),
-          leading: const Icon(
-            Icons.menu,
+          leading: IconButton(
+            onPressed: () {
+              print("Your Menu");
+            },
+            icon: const Icon(Icons.menu),
           ),
           title: const Text(
             "Flipkart" '\n' "Explore Plus",
-            style: TextStyle(fontSize: 13),
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w900),
           ),
           leadingWidth: 40,
 
