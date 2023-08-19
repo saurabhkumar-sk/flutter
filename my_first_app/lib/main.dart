@@ -1,8 +1,5 @@
-import 'dart:developer' as dev;
-
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/login_screen.dart';
-import 'package:my_first_app/Screens/signup_screen.dart';
+import 'package:my_first_app/app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,117 +11,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+    
       debugShowCheckedModeBanner: false,
       title: "Flipkart clone",
       theme: ThemeData(
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
+          
           backgroundColor: Colors.blue,
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
 
       // color: Color.fromRGBO(241, 238, 238, 1),
-      home: const App(),
+      home: const App(
+        name: "flipKart",
+      ),
     );
   }
 }
 
-class App extends StatelessWidget {
-  const App({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(child: AppBar()),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          dev.log("Button Pressed", name: "Button");
-        },
-      ),
-      appBar: AppBar(
-        // backgroundColor: const Color.fromRGBO(0, 200, 255, 1),
-        // leading: IconButton(
-        //   onPressed: () {
-        //     ("Your Menu");
-        //   },
-        //   icon: const Icon(Icons.menu),
-        // ),
-        title: const Text(
-          "Flipkart" '\n' "Explore Plus",
-          style: TextStyle(
-              fontSize: 13, fontWeight: FontWeight.w900, color: Colors.white),
-        ),
-        // leadingWidth: 40,
-
-        actions: [
-          IconButton(
-            onPressed: () {
-              dev.log("Your items are added to cart", name: "Cart");
-            },
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.white,
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SignUpScreen(),
-                ),
-              );
-            },
-            child: const Text(
-              'Signup    ',
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LogedInScerrn(),
-                ),
-              );
-            },
-            child: const Text(
-              "Login  ",
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white),
-            ),
-          ),
-        ],
-
-        // bottom: AppBar(
-        //   title: Container(
-        //     width: double.infinity,
-        //     height: 40,
-        //     color: Colors.white,
-        //     child: const Center(
-        //       child: TextField(
-        //         decoration: InputDecoration(
-        //             hintText: 'Search for something',
-        //             prefixIcon: Icon(Icons.search),
-        //             suffixIcon: Icon(Icons.camera_alt)),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-      ),
-      body: const Center(child: Text('flipkart')),
-    );
-  }
-}
 
 
 
