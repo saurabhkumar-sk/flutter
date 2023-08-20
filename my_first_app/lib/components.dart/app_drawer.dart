@@ -12,14 +12,21 @@ class AppDrawer extends StatelessWidget {
         children: [
           AppBar(
             automaticallyImplyLeading: false,
-            leading: const Icon(Icons.admin_panel_settings_sharp),
+            leading: const Icon(Icons.account_circle_sharp),
             title: const Text(
               'Login & Signup',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 16, 16, 16),
+                  color: Colors.white,
                   fontSize: 18),
             ),
+            actions: [
+              SizedBox(
+                height: 30,
+                width: 30,
+                child: Image.asset('assets/images/Flipkart-logo.png'),
+              ),
+            ],
           ),
           Container(
             height: 65,
@@ -35,7 +42,7 @@ class AppDrawer extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0.19, 0, 0),
-            height: 120,
+            height: 125,
             width: double.infinity,
             color: Colors.white,
             child: const Column(
@@ -43,26 +50,27 @@ class AppDrawer extends StatelessWidget {
               children: [
                 Text('\n     🪙     All Categories\n'),
                 Text('     🪙     Trending Stores🆕\n'),
-                Text('     🪙     Flipkart Plus Zone'),
+                Text('     🪙     More on Flipkart'),
               ],
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0.19, 0, 0),
-            height: 40,
+            height: 55,
             width: double.infinity,
             color: Colors.white,
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('     🪙     Choose Language\n'),
+                Text('\n     🪙     Choose Language'),
               ],
             ),
           ),
           Container(
             height: 80,
+            margin: const EdgeInsets.fromLTRB(0, 0.19, 0, 0),
             width: double.infinity,
-            color: Colors.lightBlueAccent,
+            color: Colors.white,
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -71,6 +79,36 @@ class AppDrawer extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(0, 0.19, 0, 0),
+            height: 250,
+            width: double.infinity,
+            color: Colors.white,
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('\n     🪙   My Orders\n'),
+                Text('     🪙    Coupons\n'),
+                Text('     🪙    My Cart\n'),
+                Text('     🪙     My Wishlist\n'),
+                Text('     🪙     My Account\n'),
+                Text('     🪙     My Notofications'),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(0, 0.19, 0, 0),
+            height: 81,
+            width: double.infinity,
+            color: Colors.white,
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('      Help Center\n'),
+                Text('      Legal'),
+              ],
+            ),
+          )
         ],
       ),
     );

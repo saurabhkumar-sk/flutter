@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/app.dart';
+import 'package:my_first_app/landing.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    
       debugShowCheckedModeBanner: false,
       title: "Flipkart clone",
       theme: ThemeData(
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          
           backgroundColor: Colors.blue,
           iconTheme: IconThemeData(color: Colors.white),
         ),
