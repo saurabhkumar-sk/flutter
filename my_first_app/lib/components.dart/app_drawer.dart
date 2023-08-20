@@ -36,7 +36,7 @@ class AppDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('     🪙     SuperCoin Zone\n'),
-                Text('     🪙     Flipkart Plus Zone'),
+                Text('     ♻️      Flipkart Plus Zone'),
               ],
             ),
           ),
@@ -48,8 +48,8 @@ class AppDrawer extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('\n     🪙     All Categories\n'),
-                Text('     🪙     Trending Stores🆕\n'),
+                Text('\n     🪟     All Categories\n'),
+                Text('     🏦     Trending Stores🆕\n'),
                 Text('     🪙     More on Flipkart'),
               ],
             ),
@@ -62,7 +62,7 @@ class AppDrawer extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('\n     🪙     Choose Language'),
+                Text('\n     🇮🇳     Choose Language'),
               ],
             ),
           ),
@@ -74,8 +74,8 @@ class AppDrawer extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('     🪙     Offer Zone\n'),
-                Text('     🪙     Sell on Flipkart\n'),
+                Text('     🎫     Offer Zone\n'),
+                Text('     👜     Sell on Flipkart\n'),
               ],
             ),
           ),
@@ -87,12 +87,12 @@ class AppDrawer extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('\n     🪙   My Orders\n'),
-                Text('     🪙    Coupons\n'),
-                Text('     🪙    My Cart\n'),
-                Text('     🪙     My Wishlist\n'),
-                Text('     🪙     My Account\n'),
-                Text('     🪙     My Notofications'),
+                Text('\n     📦     My Orders\n'),
+                Text('     🎫     Coupons\n'),
+                Text('     🛒     My Cart\n'),
+                Text('     ❤︎     My Wishlist\n'),
+                Text('     👩🏻     My Account\n'),
+                Text('     🔔     My Notofications'),
               ],
             ),
           ),
