@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+// import 'package:my_first_app/Screens/button.dart';
 import 'dart:developer' as dev;
 
 import 'package:my_first_app/Screens/login_screen.dart';
 import 'package:my_first_app/Screens/signup_screen.dart';
 import 'package:my_first_app/components.dart/app_drawer.dart';
+import 'package:my_first_app/components.dart/body_widgets.dart';
 
 class App extends StatelessWidget {
   const App({super.key, required this.name});
@@ -14,10 +16,14 @@ class App extends StatelessWidget {
     return Scaffold(
       drawer: const AppDrawer(),
       appBar: AppBar(
-        title: const Text(
-          "Flipkart" '\n' "Explore Plus",
-          style: TextStyle(
-              fontSize: 13, fontWeight: FontWeight.w900, color: Colors.white),
+        title: Column(
+          children: [
+            Image.network(
+              "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fk-explorePlus-c5de64.png",
+              height: 90,
+              width: 90,
+            ),
+          ],
         ),
         actions: [
           IconButton(
@@ -83,61 +89,8 @@ class App extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              color: Colors.black,
-              height: 74,
-              width: 90,
-              child: Row(
-                children: [
-                  Image.asset('assets/images/categories.png'),
-                  Image.asset('assets/images/offerzone.png'),
-                  Image.asset('assets/images/mobile.jpg'),
-                  Image.asset('assets/images/fashion.png'),
-                  Image.asset('assets/images/electronics.png'),
-                ],
-              ),
-            ),
-            Image.network(
-                "https://rukminim2.flixcart.com/fk-p-flap/1100/500/image/97f24748652e61ae.png?q=20"),
-            Row(
-              children: [
-                SizedBox(
-                  height: 110,
-                  width: 105,
-                  child: Image.network(
-                      "https://rukminim2.flixcart.com/fk-p-flap/263/280/image/7f7ed951d79738e3.png?q=60"),
-                ),
-                const SizedBox(
-                  height: 110,
-                  width: 105,
-                  child: Image(
-                    image: AssetImage("assets/images/mattresses.jpg"),
-                  ),
-                ),
-                const SizedBox(
-                  height: 110,
-                  width: 105,
-                  child: Image(
-                    image: AssetImage("assets/images/mattresses.jpg"),
-                  ),
-                ),
-                const SizedBox(
-                  height: 110,
-                  width: 75,
-                  child: Image(
-                      image: NetworkImage(
-                          "https://rukminim2.flixcart.com/fk-p-flap/263/280/image/99a49a626e9d43ae.png?q=60")),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
+      body: const BodyImages(),
+      // endDrawer: MyButtons(),
     );
   }
 }

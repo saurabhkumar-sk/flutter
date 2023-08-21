@@ -22,8 +22,8 @@ class AppDrawer extends StatelessWidget {
             ),
             actions: [
               SizedBox(
-                height: 30,
-                width: 30,
+                height: 40,
+                width: 70,
                 child: Image.asset('assets/images/Flipkart-logo.png'),
               ),
             ],

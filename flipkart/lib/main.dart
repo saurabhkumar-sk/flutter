@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+// import 'package:my_first_app/Screens/button.dart';
 import 'package:my_first_app/landing.dart';
+// import 'package:my_first_app/landing.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,21 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Flipkart clone",
-      theme: ThemeData(
-        useMaterial3: true,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
-          iconTheme: IconThemeData(color: Colors.white),
+        debugShowCheckedModeBanner: false,
+        title: "Flipkart clone",
+        theme: ThemeData(
+          useMaterial3: true,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.blue,
+            iconTheme: IconThemeData(color: Colors.white),
+          ),
         ),
-      ),
 
-      // color: Color.fromRGBO(241, 238, 238, 1),
-      home: const App(
-        name: "flipKart",
-      ),
-    );
+        // color: Color.fromRGBO(241, 238, 238, 1),
+        home: const App(
+          name: "Flipkart",
+        ));
   }
 }
 
