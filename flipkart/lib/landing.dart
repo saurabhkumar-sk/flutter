@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:my_first_app/Screens/button.dart';
-import 'dart:developer' as dev;
+import 'package:my_first_app/Screens/button2.dart';
 
 import 'package:my_first_app/Screens/login_screen.dart';
 import 'package:my_first_app/Screens/signup_screen.dart';
 import 'package:my_first_app/components.dart/app_drawer.dart';
-import 'package:my_first_app/components.dart/body_widgets.dart';
+import 'package:my_first_app/components.dart/landing_body_widgets.dart';
 
 class App extends StatelessWidget {
   const App({super.key, required this.name});
@@ -26,12 +25,18 @@ class App extends StatelessWidget {
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              dev.log("Your items are added to cart", name: "Cart");
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Button2(),
+                ),
+              );
             },
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
+            child: const Icon(
+              // Icons.margin,
+              Icons.add_box_sharp,
               color: Colors.white,
             ),
           ),
@@ -45,7 +50,7 @@ class App extends StatelessWidget {
               );
             },
             child: const Text(
-              'Signup    ',
+              '    Signup    ',
               style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
@@ -90,7 +95,6 @@ class App extends StatelessWidget {
         ),
       ),
       body: const BodyImages(),
-      // endDrawer: MyButtons(),
     );
   }
 }

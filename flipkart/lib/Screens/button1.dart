@@ -73,11 +73,15 @@ class MyButtons extends StatelessWidget {
               ),
               height: 84,
               width: 84,
+              
               child: const Image(
                   image: AssetImage("assets/images/Vector  color.png")),
             ),
           ],
+
+          
         ),
+        
       ),
     );
   }
