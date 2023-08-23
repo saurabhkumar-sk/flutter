@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // color: Color.fromRGBO(241, 238, 238, 1),
-      home: const App(name: "Flipkart"),
+      home: const App(name: "flipkart"),
     );
   }
 }

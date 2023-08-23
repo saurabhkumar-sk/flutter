@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
-
 //custom button widget code from here
 class CustomBtn extends StatelessWidget {
   final String text;
@@ -17,7 +14,7 @@ class CustomBtn extends StatelessWidget {
   final double glowRadius;
 
   // Constructor
-  CustomBtn(
+  const CustomBtn(
       {super.key,
       required this.text,
       this.stroke = 4,
@@ -32,7 +29,7 @@ class CustomBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       GestureDetector(
         onTap: (() {}),
         child: Container(
@@ -42,7 +39,7 @@ class CustomBtn extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: strokeColors),
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
               boxShadow: [
                 if (glow)
                   BoxShadow(
@@ -54,13 +51,13 @@ class CustomBtn extends StatelessWidget {
 
           // innerButtonLayer
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: colors),
-              borderRadius: BorderRadius.all(Radius.circular(5)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
             ),
             child: Text(
               text,

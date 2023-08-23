@@ -28,35 +28,34 @@ class BodyImages extends StatelessWidget {
         Row(
           children: [
             SizedBox(
-              height: 110,
-              width: 105,
+              height: 140,
+              width: 145,
               child: Image.network(
                   "https://rukminim2.flixcart.com/fk-p-flap/263/280/image/7f7ed951d79738e3.png?q=60"),
             ),
-            const SizedBox(
-              height: 110,
-              width: 105,
-              child: Image(
-                image: AssetImage("assets/images/mattresses.jpg"),
-              ),
-            ),
-            const SizedBox(
-              height: 110,
-              width: 105,
-              child: Image(
-                image: AssetImage("assets/images/mattresses.jpg"),
-              ),
-            ),
-            const SizedBox(
-              height: 110,
-              width: 75,
-              child: Image(
-                  image: NetworkImage(
-                      "https://rukminim2.flixcart.com/fk-p-flap/263/280/image/99a49a626e9d43ae.png?q=60")),
-            )
+            const ImageAssets(src: "assets/images/mattresses.jpg"),
+            const ImageAssets(src: "assets/images/mattresses.jpg"),
           ],
         ),
       ],
+    );
+  }
+}
+
+//landing widget screen asssertimages custon widget.
+class ImageAssets extends StatelessWidget {
+  final String src;
+  final double? height;
+  final double? width;
+
+  const ImageAssets({super.key, required this.src, this.height, this.width});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      src,
+      height: 150,
+      width: 120,
     );
   }
 }
