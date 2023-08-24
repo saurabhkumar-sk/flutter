@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
-      home: const App(
+      home: 
+      const App(
         name: 'login',
       ),
     );
