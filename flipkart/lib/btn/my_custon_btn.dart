@@ -39,7 +39,7 @@ class CustomBtn extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: strokeColors),
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
               boxShadow: [
                 if (glow)
                   BoxShadow(

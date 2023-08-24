@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/btn/my_custon_btn.dart';
 
-class Button2 extends StatelessWidget {
-  const Button2({super.key});
+class ApplyButton extends StatelessWidget {
+  const ApplyButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +10,20 @@ class Button2 extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: CustomBtn(
-            text: "My Button",
-            fontSize: 20,
-            stroke: 2,
-            strokeColors: [Colors.red, Colors.yellow],
-            colors: [
-              Color.fromRGBO(41, 41, 41, 1),
-              Color.fromRGBO(29, 29, 29, 1),
+            text: " APPLY",
+            fontSize: 30,
+            fontWeight: FontWeight.w900,
+            stroke: 7,
+            glow: true,
+            strokeColors: [
+              Color.fromRGBO(245, 249, 129, 1),
+              Color.fromRGBO(174, 179, 13, 1),
             ],
-            fontColor: Colors.white,
+            colors: [
+              Color.fromRGBO(250, 254, 113, 1),
+              Color.fromRGBO(250, 255, 110, 1),
+              Color.fromRGBO(224, 231, 25, 1),
+            ],
           ),
         ));
   }

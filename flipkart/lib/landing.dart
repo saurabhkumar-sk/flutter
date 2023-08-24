@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/btn/apply_btn.dart';
-
 import 'package:my_first_app/Screens/login_screen.dart';
+
 import 'package:my_first_app/Screens/signup_screen.dart';
+import 'package:my_first_app/btn/my_btn_screen.dart';
 import 'package:my_first_app/components.dart/app_drawer.dart';
-import 'package:my_first_app/Screens/landing_widgets_screen.dart';
+import 'package:my_first_app/Screens/landing_screen_widget.dart';
 
 class App extends StatelessWidget {
   const App({super.key, required this.name});
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Button2(),
+                    builder: (context) => const MyButtons(),
                   ),
                 );
               },
@@ -95,7 +95,7 @@ class App extends StatelessWidget {
             ),
           ),
         ),
-        body: const BodyImages(),
+        body: const LandingScreenWidget(),
       ),
     );
   }

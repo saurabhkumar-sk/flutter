@@ -1,36 +1,41 @@
 import 'package:flutter/material.dart';
 
-class ImageFrame extends StatelessWidget {
+class AppDrawerImages extends StatelessWidget {
   final String src;
-  final Color colors;
-  final String? text;
+
+  final String text;
   final double? height;
   final double? width;
-  final Color backgroundcolor;
   final double? padding;
-  final double? margin;
 
-  const ImageFrame({
+  const AppDrawerImages({
     super.key,
     required this.src,
-    this.text,
+    required this.text,
     this.height,
     this.width,
-    this.backgroundcolor = Colors.white,
     this.padding,
-    this.margin,
-    this.colors = Colors.white,
   });
 
 //network image
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(18, 9, 25, 3),
-      child: Image.network(
-        src,
-        height: 18,
-        width: 18,
+      padding: const EdgeInsets.fromLTRB(18, 5, 18, 9),
+      child: Row(
+        children: [
+          Image.network(
+            src,
+            height: 18,
+            width: 18,
+          ),
+          const SizedBox(
+            width: 25,
+          ),
+          Text(
+            text,
+          ),
+        ],
       ),
     );
   }
