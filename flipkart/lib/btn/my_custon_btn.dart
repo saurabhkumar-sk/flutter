@@ -12,6 +12,7 @@ class CustomBtn extends StatelessWidget {
   final bool glow;
   final Color glowColor;
   final double glowRadius;
+  final double border;
 
   // Constructor
   const CustomBtn(
@@ -25,7 +26,8 @@ class CustomBtn extends StatelessWidget {
       this.fontWeight = FontWeight.w500,
       this.glow = false,
       this.glowColor = Colors.yellow,
-      this.glowRadius = 12.0});
+      this.glowRadius = 12.0,
+      this.border = 10});
 
   @override
   Widget build(BuildContext context) {

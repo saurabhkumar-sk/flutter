@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/expaded_screen.dart';
-import 'package:my_first_app/btn/apply_btn.dart';
-import 'package:my_first_app/btn/my_btn_screen.dart';
 import 'package:my_first_app/landing.dart';
 
 void main() {
@@ -23,8 +20,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
-      home: 
-      const App(
+      home: const App(
         name: 'login',
       ),
     );

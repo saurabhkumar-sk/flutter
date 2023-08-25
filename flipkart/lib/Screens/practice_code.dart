@@ -17,6 +17,40 @@ class Imagesidget extends StatelessWidget {
 
 
 
+// buttonMy
+// return Padding(
+//       padding: const EdgeInsets.only(top: 20),
+//       child: Container(
+//         height: 84,
+//         width: 84,
+//         padding: const EdgeInsets.symmetric(vertical: 50),
+//         decoration: BoxDecoration(
+//           gradient: const LinearGradient(
+//               begin: Alignment.topCenter,
+//               end: Alignment.bottomCenter,
+//               colors: [
+//                 Color.fromRGBO(91, 255, 226, 0.20),
+//                 Color.fromRGBO(94, 100, 255, 0.20),
+//               ]),
+//           border: Border.all(width: 2, color: Color.fromARGB(255, 27, 48, 65)),
+//           borderRadius: const BorderRadius.all(Radius.circular(60)),
+//           boxShadow: [
+//             // Adding a shadow
+//             BoxShadow(
+//               color: Colors.black.withOpacity(0.2),
+//               spreadRadius: 3,
+//               blurRadius: 5,
+//               offset: Offset(0, 3),
+//             ),
+//           ],
+//         ),
+//         child: Image.asset("assets/images/Vector  color.png"),
+//       ),
+//     );
+//   }
+// }
+
+
 
 
 

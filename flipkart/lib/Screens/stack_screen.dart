@@ -18,12 +18,9 @@ class StackScreen extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
-                  height: 300,
-                  width: 300,
-                  color: Colors.amber,
-                ),
-                Container(height: 200, width: 200, color: Colors.red)
+                Container(height: 250, width: 250, color: Colors.amber),
+                Container(height: 200, width: 200, color: Colors.red),
+                Container(height: 150, width: 150, color: Colors.blue),
               ],
             ),
           ],

@@ -3,8 +3,9 @@ import 'package:my_first_app/btn/apply_btn.dart';
 import 'package:my_first_app/btn/my_custon_btn.dart';
 
 class MyButtons extends StatelessWidget {
-  final double stroke;
-  const MyButtons({super.key, this.stroke = 4});
+  const MyButtons({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class MyButtons extends StatelessWidget {
               fontColor: Colors.white,
             ),
           ),
+          // Row(children: [Text("data")]),
           Column(
             children: [
               GestureDetector(
@@ -42,30 +44,73 @@ class MyButtons extends StatelessWidget {
                         builder: (context) => const ApplyButton(),
                       ));
                 },
-                child: Container(
-                  height: 84,
-                  width: 84,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: const Color.fromARGB(244, 54, 74, 96),
-                    ),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromRGBO(91, 255, 226, 0.20),
-                        Color.fromRGBO(94, 100, 255, 0.20),
-                      ],
-                    ),
-                  ),
-                  margin: const EdgeInsets.fromLTRB(0, 26, 0, 0),
-                  child: Image.asset("assets/images/Vector  color.png"),
-                ),
+                child: const CircleButton(),
               ),
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class CircleButton extends StatelessWidget {
+  const CircleButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // return const CustomBtn(
+    //   text: "None",
+    //   fontSize: 20,
+    //   stroke: 2,
+    //   strokeColors: [
+    //     Color.fromRGBO(91, 255, 226, 0.20),
+    //     Color.fromRGBO(94, 100, 255, 0.20),
+    //   ],
+    //   colors: [
+    //     Color.fromRGBO(91, 255, 226, 0.20),
+    //     Color.fromRGBO(94, 100, 255, 0.20),
+    //   ],
+
+    //   //  BorderRadius.all(Radius.circular(5)),
+    // );
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Container(
+        height: 84,
+        width: 84,
+        padding: const EdgeInsets.symmetric(vertical: 50),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromRGBO(91, 255, 226, 0.20),
+                Color.fromRGBO(94, 100, 255, 0.20),
+              ]),
+          border: Border.all(
+              width: 2, color: const Color.fromARGB(255, 27, 48, 65)),
+          borderRadius: const BorderRadius.all(Radius.circular(50)),
+          boxShadow: const [
+            BoxShadow(
+              // color: Colors.black.withOpacity(0.2),
+              spreadRadius: 10,
+              blurRadius: 10,
+              // offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        // child: Center(
+        //   // Adding the image
+        //   child: Image.asset(
+        //     "flipkart/assets/images/Vector  color.png",
+        //     height: 40, // Adjust the height as needed
+        //     width: 40, // Adjust the width as needed
+        //   ),
+        // ),
       ),
     );
   }

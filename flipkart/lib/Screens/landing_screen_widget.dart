@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/Screens/list.dart';
 import 'package:my_first_app/btn/apply_btn.dart';
 
 class LandingScreenWidget extends StatelessWidget {
@@ -8,20 +9,19 @@ class LandingScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // const SingleChildScrollView();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
           height: 74,
-          width: 90,
-          child: Row(
-            children: [
-              Image.asset('assets/images/categories.png'),
-              Image.asset('assets/images/offerzone.png'),
-              Image.asset('assets/images/mobile.jpg'),
-              Image.asset('assets/images/fashion.png'),
-              Image.asset('assets/images/electronics.png'),
-            ],
+          width: 50,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(landingImages.length,
+                  (index) => Image.asset(landingImages[index])),
+            ),
           ),
         ),
         GestureDetector(
@@ -39,23 +39,21 @@ class LandingScreenWidget extends StatelessWidget {
             ImageAssets(src: "assets/images/mattresses.jpg"),
             ImageAssets(src: "assets/images/mattresses.jpg"),
             ImageAssets(src: "assets/images/mattresses.jpg"),
-            ImageAssets(src: "assets/images/mattresses.jpg"),
-            ImageAssets(src: "assets/images/mattresses.jpg"),
           ],
         ),
-        Row(children: [
-          Image.network(
-            "https://rukminim1.flixcart.com/image/240/240/ktketu80/mobile/6/n/d/iphone-13-mlpg3hn-a-apple-original-imag6vpyghayhhrh.jpeg?q=60",
-            height: 100,
-            width: 100,
-          ),
-        ]),
-        const Padding(
-          padding: EdgeInsets.only(left: 20),
-          child: Text(
-            " Mobile",
-          ),
-        ),
+        // Row(children: [
+        //   Image.network(
+        //     "https://rukminim1.flixcart.com/image/240/240/ktketu80/mobile/6/n/d/iphone-13-mlpg3hn-a-apple-original-imag6vpyghayhhrh.jpeg?q=60",
+        //     height: 100,
+        //     width: 100,
+        //   ),
+        // ]),
+        // const Padding(
+        //   padding: EdgeInsets.only(left: 20),
+        //   child: Text(
+        //     " Mobile",
+        //   ),
+        // ),
       ],
     );
   }
@@ -73,8 +71,8 @@ class ImageAssets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       src,
-      height: 83,
-      // width: 90,
+      height: 120,
+      width: 130,
     );
   }
 }
