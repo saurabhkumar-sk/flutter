@@ -6,6 +6,8 @@ class AppDrawer extends StatelessWidget {
     super.key,
   });
 
+  get index => 13;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -35,39 +37,36 @@ class AppDrawer extends StatelessWidget {
           Column(
             children: List.generate(
               myList.length,
-              (index) => Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.network(
-                      myList[index]['src'],
-                      height: 20,
-                      width: 15,
+              (index) => Column(
+                children: [
+                  if ([
+                    2,
+                    5,
+                    6,
+                    8,
+                  ].contains(index))
+                    const Divider(),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.network(
+                          myList[index]['src'],
+                          height: 20,
+                          width: 15,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 18),
+                          child: Text(
+                            myList[index]['text'].toString(),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18),
-                      child: Text(
-                        myList[index]['text'].toString(),
-                      ),
-                    ),
-                    for (int i = 0; i <= myList.length; i++)
-                      if (index == 2 &&
-                          index == 5 &&
-                          index == 6 &&
-                          index == 8 &&
-                          index == 14)
-                        const Divider(),
-
-                    // if (index == 2 &&
-                    //     index == 5 &&
-                    //     index == 6 &&
-                    //     index == 8 &&
-                    //     index == 14)
-                    //   Divider(),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -107,7 +106,12 @@ class AppDrawer extends StatelessWidget {
 
 
 
-
+ // if (index == 2 &&
+                    //     index == 5 &&
+                    //     index == 6 &&
+                    //     index == 8 &&
+                    //     index == 14)
+                    //   Divider(),
 
 
 

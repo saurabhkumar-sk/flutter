@@ -33,6 +33,11 @@ List<Map<String, dynamic>> myList = [
   },
   {
     'src':
+        "https://rukminim2.flixcart.com/www/300/42/promos/08/04/2016/a12880b1-9c2b-4b4b-9029-31ba9ff666bf.png?q=40",
+    'text': "Offer Zone",
+  },
+  {
+    'src':
         "https://rukminim2.flixcart.com/www/300/42/promos/18/01/2019/c79d21c6-b201-42a7-b37c-6405c6c4fbf5.png?q=40",
     'text': ("Sell on Flipkart"),
   },

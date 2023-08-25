@@ -103,14 +103,14 @@ class CircleButton extends StatelessWidget {
             ),
           ],
         ),
-        // child: Center(
-        //   // Adding the image
-        //   child: Image.asset(
-        //     "flipkart/assets/images/Vector  color.png",
-        //     height: 40, // Adjust the height as needed
-        //     width: 40, // Adjust the width as needed
-        //   ),
-        // ),
+        child: Center(
+          // Adding the image
+          child: Image.asset(
+            "flipkart/assets/images/Vector  color.png",
+            height: 40, // Adjust the height as needed
+            width: 40, // Adjust the width as needed
+          ),
+        ),
       ),
     );
   }
