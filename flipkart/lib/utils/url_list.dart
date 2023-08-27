@@ -75,12 +75,13 @@ List<Map<String, dynamic>> myList = [
 // Drawer Text List
 List<String> textList = ["Notification Perference", "Help Center", "Legal"];
 
-//Landing Page Images List(first row images)
+//Landing Page Images List(1st row images)
 List<String> landingImages = [
   "assets/images/categories.png",
   "assets/images/offerzone.png",
   "assets/images/mobile.jpg",
   "assets/images/fashion.png",
+  "assets/images/appliance.jpg",
   "assets/images/electronics.png",
   "assets/images/electronics.png",
   "assets/images/mobile.jpg",
@@ -100,89 +101,41 @@ List<String> landingImages = [
   "assets/images/mobile.jpg",
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//List of WhatsApp chat images or names
+
+List<Map<String, dynamic>> chatList = [
+  {"avatar": "assets/images/avatar1.png", "name": "Saurabh"},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Ajay Kr"},
+  {"avatar": "assets/images/avatar2.jpg", "name": " Anaya "},
+  {"avatar": "assets/images/avatar3.jpg", "name": "Shyam "},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Rajnish"},
+  {"avatar": "assets/images/avatar1.png", "name": "Suraj"},
+  {"avatar": "assets/images/avatar1.png", "name": "Nitesh"},
+  {"avatar": "assets/images/avatar.png", "name": "Ritesh"},
+  {"avatar": "assets/images/avatar2.jpg", "name": "Ajit Kr"},
+  {"avatar": "assets/images/avatar3.jpg", "name": "Raj Kr"},
+  {"avatar": "assets/images/avatar3.jpg", "Name": "Raj Kr"},
+];
+
+//status Tab List
+List<Map<String, dynamic>> chatListSubtitle = [
+  {"Message": "Message Description"},
+  {"Message": "Your new message has been arrived"},
+  {"Message": "Message Description 1"},
+  {"Message": "Message Description 2"},
+  {"Message": "Your new message has been arrived"},
+  {"Message": "Good Morning"},
+  {"Message": "hey ! how are you"},
+  {"Message": "Message Description"},
+  {"Message": " New Message"},
+  {"Message": "Message Description 2"},
+  {"Message": "Message Description 2"},
+];
+
+List<Map<String, dynamic>> statusIcon = [
+  {"statusicon": "assets/images/avatar2.jpg", "status": "Anaya"},
+  {"statusicon": "assets/images/avatar3.jpg", "status": "Ajay Kr"},
+];
 
 
 

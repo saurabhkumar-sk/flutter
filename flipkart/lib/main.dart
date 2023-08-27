@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/landing.dart';
+// import 'package:my_first_app/landing.dart';
+import 'package:my_first_app/whatsapp_clone/landing_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,13 +17,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
+          // backgroundColor: Colors.blue,
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
-      home: const App(
-        name: 'login',
-      ),
+      // home: const App(
+      //   name: 'login',
+      // ),
+      home: const LandingScreen(),
     );
   }
 }
