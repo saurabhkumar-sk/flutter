@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:my_first_app/landing.dart';
+import 'package:my_first_app/Screens/card.dart';
+import 'package:my_first_app/Screens/fittedfox.dart';
 import 'package:my_first_app/whatsapp_clone/landing_screen.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       //   name: 'login',
       // ),
       home: const LandingScreen(),
+      // home: const CardWeidget(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/whatsapp_clone/screens/menu_dialod.dart';
 import 'package:my_first_app/whatsapp_clone/tabbar/calls_tabbar.dart';
 import 'package:my_first_app/whatsapp_clone/tabbar/chat_tabbar.dart';
 import 'package:my_first_app/whatsapp_clone/tabbar/community_tabbar.dart';
@@ -12,11 +13,6 @@ class LandingScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     log("Chat");
-        //   },
-        // ),
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(18, 140, 126, 2),
           title: Title(
@@ -27,26 +23,34 @@ class LandingScreen extends StatelessWidget {
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
             ),
           ),
-          actions: const [
-            Icon(
+          actions: [
+            const Icon(
               Icons.camera_alt_outlined,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Icon(Icons.search),
             ),
-            Icon(Icons.more_vert)
+            IconButton(
+              onPressed: () {
+                showDialog(
+                  // barrierColor: Colors.amber,
+                  context: context,
+                  builder: (context) => const Padding(
+                    padding: EdgeInsets.only(left: 120, bottom: 450),
+                    child: MenuDialog(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.more_vert),
+            ),
           ],
           bottom: const TabBar(
             indicatorColor: Colors.white,
             labelColor: Colors.white,
             unselectedLabelColor: Color.fromARGB(255, 214, 214, 214),
-            // automaticIndicatorColorAdjustment: false,
-            // labelStyle: TextStyle(color: Colors.amber),
-            // dividerColor: Colors.amber,
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorWeight: 4,
-            // overlayColor: MaterialStatePropertyAll(Colors.amber),
             labelStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             padding: EdgeInsets.only(right: 10),
             tabs: [
@@ -58,17 +62,14 @@ class LandingScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(
-                "Chats",
-                style: TextStyle(),
+              Tab(
+                text: "Chats",
               ),
-              Text(
-                "Status",
-                style: TextStyle(),
+              Tab(
+                text: "Status",
               ),
-              Text(
-                "Calls",
-                style: TextStyle(),
+              Tab(
+                text: "Calls",
               ),
             ],
           ),

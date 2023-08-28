@@ -27,78 +27,55 @@ class TextTabBar extends StatelessWidget {
           itemCount: chatList.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-              title: Row(
-                children: [
-                  Image.asset(
-                    chatList[index]['avatar'],
-                    height: 40,
-                    width: 50,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      chatList[index]['name'].toString(),
-                      style: const TextStyle(fontSize: 16),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => FittedBox(
+                    fit: BoxFit.cover,
+                    child: Dialog(
+                      clipBehavior: Clip.hardEdge,
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            chatList[index]['avatar'],
+                            height: 40,
+                            width: 50,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 173),
-                    child: Row(
-                      children: [
-                        Text(
-                          "yesterday",
-                          style: TextStyle(fontSize: 12),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                );
+              },
+              leading: Image.asset(
+                chatList[index]['avatar'],
+                height: 40,
+                width: 50,
+              ),
+              title: Text(
+                chatList[index]['name'].toString(),
+                style: const TextStyle(fontSize: 16),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.only(left: 59),
+                padding: const EdgeInsets.only(left: 0),
                 child: Text(chatListSubtitle[index]['Message'].toString()),
               ),
+              trailing: const Text("Yesterday"),
             );
           }),
-      bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        onTap: (home) => log("Home"),
-        backgroundColor: const Color.fromARGB(221, 0, 0, 0),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "home",
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   fixedColor: Colors.white,
+      //   unselectedItemColor: Colors.grey,
+      //   onTap: (home) => log("Home"),
+      //   backgroundColor: const Color.fromARGB(221, 0, 0, 0),
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       label: "home",
+      //     ),
+      //     BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
+      //   ],
+      // ),
     );
   }
 }
-
-// List.generate(
-//               myList.length,
-//               (index) => Column(
-//                 children: [
-//
-//                   Padding(
-//                     padding:
-//                         const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
-//                     child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.start,
-//                       children: [
-//                         Image.network(
-//                           myList[index]['src'],
-//                           height: 20,
-//                           width: 15,
-//                         ),
-//                         Padding(
-//                           padding: const EdgeInsets.only(left: 18),
-//                           child: Text(
-//                             myList[index]['text'].toString(),
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),

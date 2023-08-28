@@ -105,14 +105,15 @@ List<String> landingImages = [
 
 List<Map<String, dynamic>> chatList = [
   {"avatar": "assets/images/avatar1.png", "name": "Saurabh"},
+  {"avatar": "assets/images/avatar4.jpg", "name": "ThePresence flutter group"},
   {"avatar": "assets/images/avatar4.jpg", "name": "Ajay Kr"},
   {"avatar": "assets/images/avatar2.jpg", "name": " Anaya "},
   {"avatar": "assets/images/avatar3.jpg", "name": "Shyam "},
   {"avatar": "assets/images/avatar4.jpg", "name": "Rajnish"},
   {"avatar": "assets/images/avatar1.png", "name": "Suraj"},
-  {"avatar": "assets/images/avatar1.png", "name": "Nitesh"},
-  {"avatar": "assets/images/avatar.png", "name": "Ritesh"},
-  {"avatar": "assets/images/avatar2.jpg", "name": "Ajit Kr"},
+  {"avatar": "assets/images/avatar1.png", "name": "Raj Kr"},
+  {"avatar": "assets/images/avatar.png", "name": "John"},
+  {"avatar": "assets/images/avatar2.jpg", "name": "Mahakal"},
   {"avatar": "assets/images/avatar3.jpg", "name": "Raj Kr"},
   {"avatar": "assets/images/avatar3.jpg", "Name": "Raj Kr"},
 ];
@@ -126,6 +127,7 @@ List<Map<String, dynamic>> chatListSubtitle = [
   {"Message": "Your new message has been arrived"},
   {"Message": "Good Morning"},
   {"Message": "hey ! how are you"},
+  {"Message": "hey ! how are you"},
   {"Message": "Message Description"},
   {"Message": " New Message"},
   {"Message": "Message Description 2"},
@@ -137,14 +139,16 @@ List<Map<String, dynamic>> statusIcon = [
   {"statusicon": "assets/images/avatar3.jpg", "status": "Ajay Kr"},
 ];
 
-
-
-
-
-
-
-
-
+//list for whatsapp menu dialog .
+//
+List<Map<String, dynamic>> menuText = [
+  {
+    "text": "assets/images/avatar2.jpg",
+  },
+  {
+    "text": "assets/images/avatar3.jpg",
+  },
+];
 
 // import 'package:flutter/material.dart';
 
