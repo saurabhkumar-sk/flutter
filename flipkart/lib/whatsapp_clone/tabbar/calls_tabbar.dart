@@ -58,14 +58,18 @@ class CallsTabBar extends StatelessWidget {
                     // color: const Color.fromRGBO(18, 140, 126, 2),
                   ),
                   child: Stack(
-                    fit: StackFit.expand,
-                    // clipBehavior: Clip.hardEdge,
+                    // fit: StackFit.expand,
+                    clipBehavior: Clip.none,
                     children: [
                       Image.asset(
                         'assets/images/avatar.png',
                       ),
-                      Image.asset(
-                        'assets/images/avatar4.jpg',
+                      const Positioned(
+                        left: 5,
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/avatar4.jpg'),
+                        ),
                       ),
                       //  const  Icon(Icons.groups_2_outlined)
                     ],

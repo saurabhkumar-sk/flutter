@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
 
@@ -108,31 +110,32 @@ class StatusBody extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(right: 270, top: 10),
                   ),
+                  // ],
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(327, 500, 0, 0),
+                        child: SizedBox(
+                          height: 40,
+                          width: 40,
+                          child: FloatingActionButton(
+                            onPressed: () {
+                              log("Status");
+                            },
+                            backgroundColor: Colors.green.shade200,
+                            child: const Icon(
+                              Icons.edit_rounded,
+                              color: Color.fromARGB(255, 3, 132, 8),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
-              )
+              ),
             ],
           );
-        }
-        // Column(
-        //   children: [
-        //     Padding(
-        //       padding: const EdgeInsets.fromLTRB(327, 500, 0, 0),
-        //       child: SizedBox(
-        //         height: 40,
-        //         width: 40,
-        //         child: FloatingActionButton(
-        //           onPressed: () {
-        //             log("Status");
-        //           },
-        //           backgroundColor: Colors.green.shade200,
-        //           child: const Icon(
-        //             Icons.edit_rounded,
-        //             color: Color.fromARGB(255, 3, 132, 8),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-
-        );
+        });
   }
 }
