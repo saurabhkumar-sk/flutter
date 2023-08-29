@@ -7,40 +7,66 @@ class MenuDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Dialog(
-        child: Padding(
-      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            "New group",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "New broadcast",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "Linked Devices",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "Starred message",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "Payment",
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            "Setting",
-            style: TextStyle(fontSize: 20),
-          ),
-        ],
-      ),
-    ));
+    return const Padding(
+      padding: EdgeInsets.only(left: 10),
+      child: Dialog(
+          // shape: Border(),
+          backgroundColor: Colors.white,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+            child: FittedBox(
+              alignment: Alignment.topLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 2),
+                    child: Text(
+                      "New group",
+                      style: TextStyle(fontSize: 10, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "New broadcast",
+                      style: TextStyle(fontSize: 10, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Linked Devices",
+                      style: TextStyle(fontSize: 10, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Starred message",
+                      style: TextStyle(fontSize: 10, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Payment",
+                      style: TextStyle(fontSize: 10, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Setting",
+                      style: TextStyle(fontSize: 10, color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )),
+    );
   }
 }
 

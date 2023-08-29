@@ -11,7 +11,7 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 2,
+      initialIndex: 1,
       length: 4,
       child: Scaffold(
         appBar: AppBar(
@@ -38,7 +38,7 @@ class LandingScreen extends StatelessWidget {
                   // barrierColor: Colors.amber,
                   context: context,
                   builder: (context) => const Padding(
-                    padding: EdgeInsets.only(left: 120, bottom: 450),
+                    padding: EdgeInsets.only(left: 150, bottom: 400),
                     child: MenuDialog(),
                   ),
                 );

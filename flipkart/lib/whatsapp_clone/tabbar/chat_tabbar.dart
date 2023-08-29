@@ -30,27 +30,47 @@ class TextTabBar extends StatelessWidget {
               onTap: () {
                 showDialog(
                   context: context,
-                  builder: (context) => Dialog(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        FittedBox(
-                          child: Image.asset(
-                            chatList[index]['avatar'],
-                            height: 50,
-                            width: 50,
-                          ),
-                        ),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  builder: (context) => Padding(
+                    padding:
+                        const EdgeInsets.only(left: 30, right: 30, bottom: 150),
+                    child: FittedBox(
+                      child: Dialog(
+                        // backgroundColor: Colors.amber,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.chat),
-                            Icon(Icons.chat),
-                            Icon(Icons.chat),
-                            Icon(Icons.chat),
+                            Image.asset(
+                              chatList[index]['avatar'],
+                              height: MediaQuery.of(context).size.width - 100,
+                              width: MediaQuery.of(context).size.width - 100,
+                            ),
+                            const Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 50),
+                                  child: Icon(Icons.chat),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 5, horizontal: 50),
+                                    child: Icon(Icons.call)),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 50),
+                                  child: Icon(Icons.videocam_sharp),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 50),
+                                  child: Icon(Icons.info_outline),
+                                ),
+                              ],
+                            )
                           ],
-                        )
-                      ],
+                        ),
+                      ),
                     ),
                   ),
                 );
