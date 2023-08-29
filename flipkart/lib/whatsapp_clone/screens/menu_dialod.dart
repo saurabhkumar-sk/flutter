@@ -9,8 +9,7 @@ class MenuDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Dialog(
         child: Padding(
-      padding:
-          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

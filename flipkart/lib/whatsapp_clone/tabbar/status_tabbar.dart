@@ -11,13 +11,37 @@ class StatusTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color.fromRGBO(18, 140, 126, 2),
-        child: const Icon(
-          Icons.camera_alt_rounded,
-          color: Colors.white,
-        ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 40,
+              width: 40,
+              child: FloatingActionButton(
+                onPressed: () {
+                  log("Edit");
+                },
+                backgroundColor: const Color.fromARGB(255, 167, 238, 203),
+                child: const Icon(
+                  Icons.edit,
+                  color: Color.fromRGBO(18, 140, 126, 2),
+                ),
+              ),
+            ),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              log("camera");
+            },
+            backgroundColor: const Color.fromRGBO(18, 140, 126, 2),
+            child: const Icon(
+              Icons.camera_alt_rounded,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       body: const StatusBody(),
     );

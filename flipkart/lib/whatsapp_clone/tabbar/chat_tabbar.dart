@@ -30,19 +30,27 @@ class TextTabBar extends StatelessWidget {
               onTap: () {
                 showDialog(
                   context: context,
-                  builder: (context) => FittedBox(
-                    fit: BoxFit.cover,
-                    child: Dialog(
-                      clipBehavior: Clip.hardEdge,
-                      child: Column(
-                        children: [
-                          Image.asset(
+                  builder: (context) => Dialog(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FittedBox(
+                          child: Image.asset(
                             chatList[index]['avatar'],
-                            height: 40,
+                            height: 50,
                             width: 50,
                           ),
-                        ],
-                      ),
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(Icons.chat),
+                            Icon(Icons.chat),
+                            Icon(Icons.chat),
+                            Icon(Icons.chat),
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 );
