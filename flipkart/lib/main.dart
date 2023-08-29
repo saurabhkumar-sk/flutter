@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/whatsapp_clone/landing_screen.dart';
+import 'package:my_first_app/Screens/meadiaquary_wrap_table.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,19 +12,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Flipkart clone",
+      title: "Clone",
       theme: ThemeData(
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          // backgroundColor: Colors.blue,
+          backgroundColor: Colors.blue,
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
       // home: const App(
       //   name: 'login',
       // ),
-      home: const LandingScreen(),
+      // home: const WrapWidgetScreen(),
       // home: const CardWeidget(),
+      home: const TableScreen(),
     );
   }
 }
