@@ -1,16 +1,21 @@
-# my_first_app
+# WhatsApp clone(frontend) created with flutter.
 
-A new Flutter project.
 
-## Getting Started
+## Note
+This repository is under developement to add more feature to it.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+![Screenshot 2023-08-28 161237](https://github.com/codecreatorskr/flutter/assets/118014326/7533a208-169c-4e01-887d-e508a858627f)
+![Screenshot 2023-08-28 161247](https://github.com/codecreatorskr/flutter/assets/118014326/aa016fc5-1528-4bc9-9261-d47cdcebeb23)
+
+
+![Screenshot 2023-08-28 161254](https://github.com/codecreatorskr/flutter/assets/118014326/c2b8fbb2-4c9a-43b0-b130-798e902530f3)
+![Screenshot 2023-08-28 161225](https://github.com/codecreatorskr/flutter/assets/118014326/a5374cab-668a-4066-a87e-6d4bf3bf486a)
+
+
+#### Repository link.
+##### https://github.com/codecreatorskr/flutter/tree/main/flipkart/lib/whatsapp_clone
