@@ -55,32 +55,35 @@ class StatusBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 1,
-      itemBuilder: (context, index) {
-        return Column(
-          children: [
-            ListTile(
-              iconColor: Colors.white,
-              leading: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 93, 90, 89)),
-                    color: const Color.fromARGB(253, 40, 132, 122),
-                  ),
-                  child: const Icon(Icons.control_point_duplicate_sharp)),
-              title: const Text("My Status"),
-              subtitle: const Text("Tap to add status update"),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(right: 270, top: 10),
-              child: Text("Recent updates"),
-            ),
+    // return ListView.builder(
+    //   itemCount: 1,
+    //   itemBuilder: (context, index) {
+    return Column(
+      children: [
+        ListTile(
+          iconColor: Colors.white,
+          leading: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border:
+                    Border.all(color: const Color.fromARGB(255, 93, 90, 89)),
+                color: const Color.fromARGB(253, 40, 132, 122),
+              ),
+              child: const Icon(Icons.control_point_duplicate_sharp)),
+          title: const Text("My Status"),
+          subtitle: const Text("Tap to add status update"),
+        ),
+        const Padding(
+          padding: EdgeInsets.only(right: 270, top: 10),
+          child: Text("Recent updates"),
+        ),
 
-            // recent Icon(icon)
+        // recent Icon(icon)
+        ListView.builder(
+          itemCount: 1,
+          itemBuilder: (context, index) {
             Column(
               children: [
                 ListTile(
@@ -106,61 +109,64 @@ class StatusBody extends StatelessWidget {
                   child: Text("Viewed updates"),
                 ),
               ],
-            ),
+            );
+          },
+        ),
 
-            //Viewed Icons
-            Column(
-              children: [
-                ListTile(
-                  iconColor: Colors.white,
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(
-                      statusIcon[index]['statusicon'],
-                      height: 40,
-                      width: 50,
-                    ),
-                  ),
-                  title: Text(
-                    statusIcon[index]['status'].toString(),
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                  subtitle: const Text("Yesterday, 22:00"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 270, top: 10),
-                ),
-                // ],
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(327, 500, 0, 0),
-                      child: SizedBox(
-                        height: 40,
-                        width: 40,
-                        child: FloatingActionButton(
-                          onPressed: () {
-                            log("Status");
-                          },
-                          backgroundColor: Colors.green.shade200,
-                          child: const Icon(
-                            Icons.edit_rounded,
-                            color: Color.fromARGB(255, 3, 132, 8),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        );
-      },
+        //Viewed Icons
+        // Column(
+        //   children: [
+        //     ListTile(
+        //       iconColor: Colors.white,
+        //       leading: Container(
+        //         height: 50,
+        //         width: 50,
+        //         decoration: const BoxDecoration(
+        //           shape: BoxShape.circle,
+        //         ),
+        //         child: Image.asset(
+        //           statusIcon[index]['statusicon'],
+        //           height: 40,
+        //           width: 50,
+        //         ),
+        //       ),
+        //       title: Text(
+        //         statusIcon[index]['status'].toString(),
+        //         style: const TextStyle(fontSize: 16),
+        //       ),
+        //       subtitle: const Text("Yesterday, 22:00"),
+        //     ),
+        //     const Padding(
+        //       padding: EdgeInsets.only(right: 270, top: 10),
+        //     ),
+        //     // ],
+        //     Row(
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.fromLTRB(327, 500, 0, 0),
+        //           child: SizedBox(
+        //             height: 40,
+        //             width: 40,
+        //             child: FloatingActionButton(
+        //               onPressed: () {
+        //                 log("Status");
+        //               },
+        //               backgroundColor: Colors.green.shade200,
+        //               child: const Icon(
+        //                 Icons.edit_rounded,
+        //                 color: Color.fromARGB(255, 3, 132, 8),
+        //               ),
+        //             ),
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ],
+        // ),
+        // ],
+        // );
+        //  },
+      ],
     );
   }
 }

@@ -65,31 +65,31 @@ import 'package:flutter/material.dart';
 // }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// class Home extends StatelessWidget {
-//   var size, height, width;
+class Home extends StatelessWidget {
+  // double size, height, width;
 
-//   Home({super.key});
+ const  Home({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     // getting the size of the window
-//     size = MediaQuery.of(context).size;
-//     height = size.height;
-//     width = size.width;
+  @override
+  Widget build(BuildContext context) {
+    // getting the size of the window
+  //  final size = MediaQuery.of(context).size;
+   final  height = MediaQuery.of(context).size.height;
+   final width = MediaQuery.of(context).size.width;
 
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text("Mediaquary"),
-//         backgroundColor: Colors.green,
-//       ),
-//       body: Container(
-//         color: Colors.yellow,
-//         height: height / 2, //half of the height size
-//         width: width / 2, //half of the width size
-//       ),
-//     );
-//   }
-// }
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Mediaquary"),
+        backgroundColor: Colors.green,
+      ),
+      body: Container(
+        color: Colors.yellow,
+        height: height / 2, //half of the height size
+        width: width, //half of the width size
+      ),
+    );
+  }
+}
 
 //*************************************Wrap**********************************/
 
