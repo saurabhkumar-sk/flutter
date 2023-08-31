@@ -105,10 +105,10 @@ List<String> landingImages = [
 
 List<Map<String, dynamic>> chatList = [
   {"avatar": "assets/images/avatar1.png", "name": "Saurabh"},
-  {"avatar": "assets/images/avatar4.jpg", "name": "ThePresence flutter group"},
+  {"avatar": "assets/images/tony.jpg", "name": "ThePresence flutter "},
   {"avatar": "assets/images/avatar4.jpg", "name": "Ajay Kr"},
   {"avatar": "assets/images/avatar2.jpg", "name": " Anaya "},
-  {"avatar": "assets/images/avatar3.jpg", "name": "Shyam "},
+  {"avatar": "assets/images/images123.jpg", "name": "Shyam "},
   {"avatar": "assets/images/avatar4.jpg", "name": "Rajnish"},
   {"avatar": "assets/images/avatar1.png", "name": "Suraj"},
   {"avatar": "assets/images/avatar1.png", "name": "Raj Kr"},
@@ -120,18 +120,18 @@ List<Map<String, dynamic>> chatList = [
 
 //status Tab List
 List<Map<String, dynamic>> chatListSubtitle = [
-  {"Message": "Message Description"},
-  {"Message": "Your new message has been arrived"},
-  {"Message": "Message Description 1"},
-  {"Message": "Message Description 2"},
-  {"Message": "Your new message has been arrived"},
-  {"Message": "Good Morning"},
-  {"Message": "hey ! how are you"},
-  {"Message": "hey ! how are you"},
-  {"Message": "Message Description"},
-  {"Message": " New Message"},
-  {"Message": "Message Description 2"},
-  {"Message": "Message Description 2"},
+  {"Message": "Message Description", 'time': " Today, 00:00"},
+  {"Message": "Your new message has been arrived", 'time': " Today, 12:00"},
+  {"Message": "Message Description 1", 'time': " Today,04:00"},
+  {"Message": "Message Description 2", 'time': " Today, 09:00"},
+  {"Message": "Your new message has been arrived", 'time': " Today, 05:00"},
+  {"Message": "Good Morning", 'time': " Today, 23:00"},
+  {"Message": "hey ! how are you", 'time': " Today, 05:00"},
+  {"Message": "hey ! how are you", 'time': " Today, 15:00"},
+  {"Message": "Message Description", 'time': " Today, 11:00"},
+  {"Message": " New Message", 'time': " Today, 02:00"},
+  {"Message": "Message Description 2", 'time': " Today, 22:00"},
+  {"Message": "Message Description 2", 'time': " Today, 10:00"},
 ];
 
 List<Map<String, dynamic>> statusIcon = [
