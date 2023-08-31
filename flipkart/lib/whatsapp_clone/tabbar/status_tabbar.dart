@@ -84,7 +84,7 @@ class StatusBody extends StatelessWidget {
         ListView.builder(
           itemCount: 1,
           itemBuilder: (context, index) {
-            Column(
+            return Column(
               children: [
                 ListTile(
                   iconColor: Colors.white,
@@ -99,7 +99,7 @@ class StatusBody extends StatelessWidget {
                     ),
                   ),
                   title: Text(
-                    chatList[index]['name'].toString(),
+                    chatList[index]['name'],
                     style: const TextStyle(fontSize: 16),
                   ),
                   subtitle: const Text("Today, 00:00"),
