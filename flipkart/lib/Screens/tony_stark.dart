@@ -125,11 +125,8 @@ class TonyStarkScreen extends StatelessWidget {
                 children: [
                   Stack(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Image.asset(
-                          'assets/images/tony.jpg',
-                        ),
+                      Image.asset(
+                        'assets/images/tony.jpg',
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 275, top: 142),
@@ -202,14 +199,14 @@ class TonyStarkScreen extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-              child: Text(
-            "By: Saurabh",
-            style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepOrange),
-          ))
+          // Center(
+          //     child: Text(
+          //   "By: Saurabh",
+          //   style: TextStyle(
+          //       fontSize: 18,
+          //       fontWeight: FontWeight.bold,
+          //       color: Colors.deepOrange),
+          // ))
         ],
       ),
     );

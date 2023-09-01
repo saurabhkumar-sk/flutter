@@ -79,58 +79,52 @@ class StatusBody extends StatelessWidget {
         ),
 
         // recent Icon(icon)
-        SizedBox(
-          width: double.infinity,
-          height: 200,
-          child: ListView.builder(
-            itemCount: 3,
-            itemBuilder: (context, index) {
-              return ListTile(
-                iconColor: Colors.white,
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    chatList[index]['avatar'],
-                  ),
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: 3,
+          itemBuilder: (context, index) {
+            return ListTile(
+              iconColor: Colors.white,
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(
+                  chatList[index]['avatar'],
                 ),
-                title: Text(
-                  chatList[index]['name'].toString(),
-                  style: const TextStyle(fontSize: 16),
-                ),
-                subtitle: Text(
-                  chatListSubtitle[index]['time'],
-                ),
-              );
-            },
-          ),
+              ),
+              title: Text(
+                chatList[index]['name'].toString(),
+                style: const TextStyle(fontSize: 16),
+              ),
+              subtitle: Text(
+                chatListSubtitle[index]['time'],
+              ),
+            );
+          },
         ),
         const Padding(
           padding: EdgeInsets.only(top: 20, left: 22),
           child: Text('Viewed updates'),
         ),
 
-        SizedBox(
-          width: double.infinity,
-          height: 200,
-          child: ListView.builder(
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              return ListTile(
-                iconColor: Colors.white,
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    chatList[index]['avatar'],
-                  ),
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            return ListTile(
+              iconColor: Colors.white,
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(
+                  chatList[index]['avatar'],
                 ),
-                title: Text(
-                  chatList[index]['name'].toString(),
-                  style: const TextStyle(fontSize: 16),
-                ),
-                subtitle: Text(
-                  chatListSubtitle[index]['time'],
-                ),
-              );
-            },
-          ),
+              ),
+              title: Text(
+                chatList[index]['name'].toString(),
+                style: const TextStyle(fontSize: 16),
+              ),
+              subtitle: Text(
+                chatListSubtitle[index]['time'],
+              ),
+            );
+          },
         ),
       ],
     );
