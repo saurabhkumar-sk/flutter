@@ -44,10 +44,10 @@ class TonyStarkScreen extends StatelessWidget {
       ),
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           child: RichText(
             text: const TextSpan(
-              text: "Find Best Mentor's For  You ",
+              text: "Find Best   Mentor's For       You ",
               style: TextStyle(
                 fontSize: 55,
                 fontFamily: 'RopaSans',
@@ -113,86 +113,120 @@ class TonyStarkScreen extends StatelessWidget {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
+        Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(25),
+              child: Transform.rotate(
+                angle: -0.25,
+                child: Card(
+                  // shape: CircleBorder(eccentricity: 20),
+                  color: const Color.fromARGB(255, 243, 242, 239),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.network(
+                        'https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg'),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(25),
+              child: Transform.rotate(
+                angle: 30,
+                child: Card(
+                  // shape: CircleBorder(eccentricity: 20),
+                  color: const Color.fromARGB(255, 243, 242, 239),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.network(
+                        'https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg'),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(28),
+              child: Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Image.asset(
-                        'assets/images/tony.jpg',
-                      ),
+                    Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Image.asset(
+                            'assets/images/tony.jpg',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 268, top: 142),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black,
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                log("More Information");
+                              },
+                              icon: const Icon(Icons.double_arrow_sharp),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 275, top: 142),
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
+                    const ListTile(
+                      titleTextStyle: TextStyle(
                           color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 25),
+                      subtitleTextStyle: TextStyle(
+                          color: Color.fromARGB(255, 173, 14, 3),
+                          fontWeight: FontWeight.bold),
+                      title: Text('Ashwin'),
+                      subtitle: Text('Qlan CTO & CO-FOUNDER'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                              maxHeight: 200, maxWidth: 250),
+                          child: const Text(
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis ,ccumsan.")),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 5),
+                      child: TextButton(
+                        onPressed: () {
+                          log('Read case study ');
+                        },
+                        style: const ButtonStyle(
+                          side: MaterialStatePropertyAll(
+                            BorderSide(
+                              width: 1.3,
+                              color: Color.fromARGB(255, 173, 14, 3),
+                            ),
+                          ),
                         ),
-                        child: IconButton(
-                          onPressed: () {
-                            log("More Information");
-                          },
-                          icon: const Icon(Icons.double_arrow_sharp),
-                          color: Colors.white,
+                        child: const Text(
+                          'Read case study',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 173, 14, 3),
+                          ),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
-                const ListTile(
-                  titleTextStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 25),
-                  subtitleTextStyle: TextStyle(
-                      color: Color.fromARGB(255, 173, 14, 3),
-                      fontWeight: FontWeight.bold),
-                  title: Text('Ashwin'),
-                  subtitle: Text('Qlan CTO & CO-FOUNDER'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ConstrainedBox(
-                      constraints:
-                          const BoxConstraints(maxHeight: 200, maxWidth: 250),
-                      child: const Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis , vel volutpat nibh accumsan.")),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                  child: TextButton(
-                    onPressed: () {
-                      log('Read case study ');
-                    },
-                    style: const ButtonStyle(
-                      side: MaterialStatePropertyAll(
-                        BorderSide(
-                          width: 1.3,
-                          color: Color.fromARGB(255, 173, 14, 3),
-                        ),
-                      ),
-                    ),
-                    child: const Text(
-                      'Read case study',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 173, 14, 3),
-                      ),
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ]),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/gridview_screen.dart';
 import 'package:my_first_app/Screens/tony_stark.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'RopaSans',
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
+          // backgroundColor: Colors.blue,
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
@@ -32,9 +31,9 @@ class MyApp extends StatelessWidget {
       // home: const ListTileScreen(),
       // home: const AspectRatioScreen(),
       // home: const BaseLineScreen(),
-      // home: const TonyStarkScreen(),
+      home: const TonyStarkScreen(),
       // home: const FlutterSatTest(),
-      home: const GridViewScreen(),
+      // home: const GridViewScreen(),
     );
   }
 }

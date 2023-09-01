@@ -62,6 +62,7 @@ class GridViewScreen extends StatelessWidget {
         ),
       ),
       body: GridView.builder(
+        physics: const BouncingScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           crossAxisSpacing: 5,
