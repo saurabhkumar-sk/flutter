@@ -148,6 +148,7 @@ class TonyStarkScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(28),
               child: Card(
+                // margin: const EdgeInsets.all(4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
