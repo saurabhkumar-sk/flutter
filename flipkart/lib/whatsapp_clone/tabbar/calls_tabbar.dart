@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:my_first_app/utils/url_list.dart';
 
 class CallsTabBar extends StatelessWidget {
   const CallsTabBar({
@@ -22,18 +23,17 @@ class CallsTabBar extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ListTile(
+          const ListTile(
             iconColor: Colors.white,
-            leading: Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromRGBO(18, 140, 126, 2),
-                ),
-                child: const Icon(Icons.link_outlined)),
-            title: const Text("Create call link"),
-            subtitle: const Text("Share a link for your WhatsApp call"),
+            leading: CircleAvatar(
+                backgroundColor: Colors.teal,
+                // backgroundImage: AssetImage('assets/images/tony.jpg'),
+                child: Icon(
+                  Icons.link_outlined,
+                  color: Colors.white,
+                )),
+            title: Text("Create call link"),
+            subtitle: Text("Share a link for your WhatsApp call"),
           ),
           const Padding(
             padding: EdgeInsets.only(left: 10),
@@ -85,3 +85,36 @@ class CallsTabBar extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+// SizedBox(
+//           width: double.infinity,
+//           height: 200,
+//           child: ListView.builder(
+//             itemCount: 2,
+//             itemBuilder: (context, index) {
+//               return ListTile(
+//                 iconColor: Colors.white,
+//                 leading: CircleAvatar(
+//                   backgroundImage: AssetImage(
+//                     chatList[index]['avatar'],
+//                   ),
+//                 ),
+//                 title: Text(
+//                   chatList[index]['name'].toString(),
+//                   style: const TextStyle(fontSize: 16),
+//                 ),
+//                 subtitle: Text(
+//                   chatListSubtitle[index]['time'],
+//                 ),
+//               );
+//             },
+//           ),
+//         ),

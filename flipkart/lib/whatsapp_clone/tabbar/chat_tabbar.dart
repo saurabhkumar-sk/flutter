@@ -75,10 +75,10 @@ class TextTabBar extends StatelessWidget {
                   ),
                 );
               },
-              leading: Image.asset(
-                chatList[index]['avatar'],
-                height: 40,
-                width: 50,
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(
+                  chatList[index]['avatar'],
+                ),
               ),
               title: Text(
                 chatList[index]['name'].toString(),

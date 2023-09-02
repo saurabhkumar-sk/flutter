@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Clone",
       theme: ThemeData(
-        fontFamily: 'RopaSans',
+        // fontFamily: 'RopaSans',
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           // backgroundColor: Colors.blue,

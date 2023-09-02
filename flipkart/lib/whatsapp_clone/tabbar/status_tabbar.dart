@@ -55,10 +55,8 @@ class StatusBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return ListView.builder(
-    //   itemCount: 1,
-    //   itemBuilder: (context, index) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ListTile(
           iconColor: Colors.white,
@@ -76,96 +74,58 @@ class StatusBody extends StatelessWidget {
           subtitle: const Text("Tap to add status update"),
         ),
         const Padding(
-          padding: EdgeInsets.only(right: 270, top: 10),
+          padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),
           child: Text("Recent updates"),
         ),
 
         // recent Icon(icon)
         ListView.builder(
-          itemCount: 1,
+          shrinkWrap: true,
+          itemCount: 3,
           itemBuilder: (context, index) {
-            return Column(
-              children: [
-                ListTile(
-                  iconColor: Colors.white,
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Image.asset(
-                      chatList[index]['avatar'],
-                    ),
-                  ),
-                  title: Text(
-                    chatList[index]['name'],
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                  subtitle: const Text("Today, 00:00"),
+            return ListTile(
+              iconColor: Colors.white,
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(
+                  chatList[index]['avatar'],
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 270, top: 10),
-                  child: Text("Viewed updates"),
-                ),
-              ],
+              ),
+              title: Text(
+                chatList[index]['name'].toString(),
+                style: const TextStyle(fontSize: 16),
+              ),
+              subtitle: Text(
+                chatListSubtitle[index]['time'],
+              ),
             );
           },
         ),
+        const Padding(
+          padding: EdgeInsets.only(top: 20, left: 22),
+          child: Text('Viewed updates'),
+        ),
 
-        //Viewed Icons
-        // Column(
-        //   children: [
-        //     ListTile(
-        //       iconColor: Colors.white,
-        //       leading: Container(
-        //         height: 50,
-        //         width: 50,
-        //         decoration: const BoxDecoration(
-        //           shape: BoxShape.circle,
-        //         ),
-        //         child: Image.asset(
-        //           statusIcon[index]['statusicon'],
-        //           height: 40,
-        //           width: 50,
-        //         ),
-        //       ),
-        //       title: Text(
-        //         statusIcon[index]['status'].toString(),
-        //         style: const TextStyle(fontSize: 16),
-        //       ),
-        //       subtitle: const Text("Yesterday, 22:00"),
-        //     ),
-        //     const Padding(
-        //       padding: EdgeInsets.only(right: 270, top: 10),
-        //     ),
-        //     // ],
-        //     Row(
-        //       children: [
-        //         Padding(
-        //           padding: const EdgeInsets.fromLTRB(327, 500, 0, 0),
-        //           child: SizedBox(
-        //             height: 40,
-        //             width: 40,
-        //             child: FloatingActionButton(
-        //               onPressed: () {
-        //                 log("Status");
-        //               },
-        //               backgroundColor: Colors.green.shade200,
-        //               child: const Icon(
-        //                 Icons.edit_rounded,
-        //                 color: Color.fromARGB(255, 3, 132, 8),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //   ],
-        // ),
-        // ],
-        // );
-        //  },
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: 2,
+          itemBuilder: (context, index) {
+            return ListTile(
+              iconColor: Colors.white,
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(
+                  chatList[index]['avatar'],
+                ),
+              ),
+              title: Text(
+                chatList[index]['name'].toString(),
+                style: const TextStyle(fontSize: 16),
+              ),
+              subtitle: Text(
+                chatListSubtitle[index]['time'],
+              ),
+            );
+          },
+        ),
       ],
     );
   }
