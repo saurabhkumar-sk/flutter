@@ -89,6 +89,7 @@ class TonyStarkScreen extends StatelessWidget {
                     ),
                   ),
                 ],
+
               ),
             ),
           ),
@@ -120,9 +121,7 @@ class TonyStarkScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+              child: 
                   Stack(
                     children: [
                       Image.asset(
@@ -148,67 +147,152 @@ class TonyStarkScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const ListTile(
-                    titleTextStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 25),
-                    subtitleTextStyle: TextStyle(
-                        color: Color.fromARGB(255, 173, 14, 3),
-                        fontWeight: FontWeight.bold),
-                    title: Text('Ashwin'),
-                    subtitle: Text('Qlan CTO & CO-FOUNDER'),
+                ),
+              
+            ),
+          
+        
+        Row(
+          children: [
+            ConstrainedBox(
+              constraints: BoxConstraints.tight(const Size(210, 65)),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Text(
+                  textDirection: TextDirection.ltr,
+                  "Explore",
+                  style: TextStyle(
+                      fontSize: 18, color: Color.fromARGB(255, 131, 129, 129)),
+                ),
+              ),
+            ),
+            ConstrainedBox(
+              constraints: BoxConstraints.tight(const Size(165, 65)),
+              child: const Text(
+                textDirection: TextDirection.rtl,
+                "Read  Profile Of Your Mentors And Find Perfect Match For You",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ],
+        ),
+        Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(25),
+              child: Transform.rotate(
+                angle: -0.25,
+                child: Card(
+                  // shape: CircleBorder(eccentricity: 20),
+                  color: const Color.fromARGB(255, 243, 242, 239),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.network(
+                        'https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg'),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: ConstrainedBox(
-                        constraints:
-                            const BoxConstraints(maxHeight: 200, maxWidth: 250),
-                        child: const Text(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis , vel volutpat nibh accumsan.")),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(25),
+              child: Transform.rotate(
+                angle: 30,
+                child: Card(
+                  // shape: CircleBorder(eccentricity: 20),
+                  color: const Color.fromARGB(255, 243, 242, 239),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.network(
+                        'https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg'),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    child: Row(
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(28),
+              child: Card(
+                // margin: const EdgeInsets.all(4),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
                       children: [
-                        TextButton(
-                          onPressed: () {
-                            log('Read case study ');
-                          },
-                          style: const ButtonStyle(
-                            side: MaterialStatePropertyAll(
-                              BorderSide(
-                                width: 1.3,
-                                color: Color.fromARGB(255, 173, 14, 3),
-                              ),
-                            ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Image.asset(
+                            'assets/images/tony.jpg',
                           ),
-                          child: const Text(
-                            'Read case study',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 173, 14, 3),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 268, top: 142),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black,
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                log("More Information");
+                              },
+                              icon: const Icon(Icons.double_arrow_sharp),
+                              color: Colors.white,
                             ),
                           ),
                         ),
                       ],
                     ),
-                  )
-                ],
+                    const ListTile(
+                      titleTextStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 25),
+                      subtitleTextStyle: TextStyle(
+                          color: Color.fromARGB(255, 173, 14, 3),
+                          fontWeight: FontWeight.bold),
+                      title: Text('Ashwin'),
+                      subtitle: Text('Qlan CTO & CO-FOUNDER'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                              maxHeight: 200, maxWidth: 250),
+                          child: const Text(
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis ,ccumsan.")),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 5),
+                      child: TextButton(
+                        onPressed: () {
+                          log('Read case study ');
+                        },
+                        style: const ButtonStyle(
+                          side: MaterialStatePropertyAll(
+                            BorderSide(
+                              width: 1.3,
+                              color: Color.fromARGB(255, 173, 14, 3),
+                            ),
+                          ),
+                        ),
+                        child: const Text(
+                          'Read case study',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 173, 14, 3),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          // Center(
-          //     child: Text(
-          //   "By: Saurabh",
-          //   style: TextStyle(
-          //       fontSize: 18,
-          //       fontWeight: FontWeight.bold,
-          //       color: Colors.deepOrange),
-          // ))
-        ],
-      ),
+          ],
+        ),
+      ]),
     );
   }
 }
