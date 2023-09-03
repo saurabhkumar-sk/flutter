@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/silverappbar.dart';
+import 'package:my_first_app/whatsapp_clone/landing_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,14 +17,18 @@ class MyApp extends StatelessWidget {
         // fontFamily: 'RopaSans',
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          // backgroundColor: Colors.blue,
+          // backgroundColor: Colors.blue,  ///flipkart
+
+          ///whatApp
+          backgroundColor: Colors.teal,
+
           iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
       // home: const App(
       //   name: 'login',
       // ),
-      // home: const LandingScreen(),
+      home: const WhatsAppLandingScreen(),
       // home: const WrapWidgetScreen(),
       // home: const CardWeidget(),
       // home: const TableScreen(),
@@ -34,8 +38,8 @@ class MyApp extends StatelessWidget {
       // home: const TonyStarkScreen(),
       // home: const FlutterSatTest(),
       // home: const GridViewScreen(),
-      home: const SilverAppBarScreen(),
-      
+      // home: const SilverAppBarScreen(),
+      // home: const FbLandingScreen(),
     );
   }
 }
