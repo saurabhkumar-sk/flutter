@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
 
-List<Map<String, Icon>> contactIconList = [
+List<Map<String, IconData>> contactIconList = [
   {
-    'icons': const Icon(Icons.group),
+    'icons': Icons.group,
   },
-  {'icons': const Icon(Icons.group_add)},
-  {'icons': const Icon(Icons.qr_code)},
   {
-    'icons': const Icon(Icons.groups),
+    'icons': Icons.group_add,
+  },
+  // {'icons': const Icon(Icons.qr_code)},
+  {
+    'icons': Icons.groups,
   }
 ];
 
-class ContactChatScreen extends StatelessWidget {
-  const ContactChatScreen({super.key});
+class ChatListContact extends StatelessWidget {
+  const ChatListContact({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,20 +49,22 @@ class ContactChatScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+
               shrinkWrap: true,
               // itemCount: contactIconList.length,
               itemCount: 3,
               itemBuilder: (BuildContext context, int index) {
-                return const ListTile(
+                return ListTile(
                   // tileColor: Colors.amber,
                   //  Icons icon=contactListIcon();
                   leading: CircleAvatar(
                       backgroundColor: Colors.teal,
                       child: Icon(
-                        Icons.group,
+                        contactIconList[index]['icons'],
                         color: Colors.white,
                       )),
-                  title: Text(
+                  title: const Text(
                     'New group',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ),
@@ -77,6 +81,7 @@ class ContactChatScreen extends StatelessWidget {
               ),
             ),
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: chatList.length,
               itemBuilder: (context, index) {
@@ -107,6 +112,7 @@ class ContactChatScreen extends StatelessWidget {
               ),
             ),
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: invitetowhatsapplist.length,
               itemBuilder: (context, index) {
@@ -121,9 +127,9 @@ class ContactChatScreen extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500, fontSize: 18),
                   ),
-                  trailing: Text(
-                    invitetowhatsapplist[index]['invite'],
-                    style: const TextStyle(color: Colors.teal, fontSize: 15),
+                  trailing: const Text(
+                    'Invite',
+                    style: TextStyle(color: Colors.teal, fontSize: 15),
                   ),
                 );
               },

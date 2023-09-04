@@ -8,7 +8,7 @@ class EditStatusScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 76, 138, 5),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
         leading: GestureDetector(
           onTap: () {

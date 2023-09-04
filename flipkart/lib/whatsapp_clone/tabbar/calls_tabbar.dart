@@ -31,7 +31,10 @@ class CallsTabBar extends StatelessWidget {
                   Icons.link_outlined,
                   color: Colors.white,
                 )),
-            title: Text("Create call link"),
+            title: Text(
+              "Create call link",
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+            ),
             subtitle: Text("Share a link for your WhatsApp call"),
           ),
           const Padding(
@@ -74,7 +77,10 @@ class CallsTabBar extends StatelessWidget {
                     ],
                   ),
                 ),
-                title: const Text("Saurabh"),
+                title: const Text(
+                  "Saurabh",
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                ),
                 subtitle: const Text(" ↙ Yesterday  00:00"),
               ),
             ],

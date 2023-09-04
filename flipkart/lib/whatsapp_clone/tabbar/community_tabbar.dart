@@ -25,7 +25,10 @@ class CommunityTabBar extends StatelessWidget {
                       color: Color.fromARGB(253, 40, 132, 122),
                     ),
                     child: const Icon(Icons.group_add_rounded)),
-                title: const Text("New community"),
+                title: const Text(
+                  "New community",
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                ),
               ),
             ],
           );

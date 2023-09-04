@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
-import 'package:my_first_app/whatsapp_clone/screens/chat._screen.dart';
+import 'package:my_first_app/whatsapp_clone/screens/chatbox_contact_screen.dart';
+import 'package:my_first_app/whatsapp_clone/screens/chatting_sccreen.dart';
 
 class ChatTabBarScreen extends StatelessWidget {
   const ChatTabBarScreen({
@@ -14,28 +15,33 @@ class ChatTabBarScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          log('message');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ChatListContact(),
+            ),
+          );
         },
         backgroundColor: const Color.fromRGBO(18, 140, 126, 2),
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ContactChatScreen(),
-              ),
-            );
-          },
-          child: const Icon(
-            Icons.chat,
-            color: Colors.white,
-          ),
+        child: const Icon(
+          Icons.chat,
+          color: Colors.white,
         ),
       ),
+
       body: ListView.builder(
-          itemCount: chatList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
+        itemCount: chatList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ChattingPage(),
+                ),
+              );
+            },
+            leading: GestureDetector(
               onTap: () {
                 showDialog(
                   context: context,
@@ -43,15 +49,13 @@ class ChatTabBarScreen extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 30, right: 30, bottom: 150),
                     child: FittedBox(
+                      // fit: BoxFit.fill,
                       child: Dialog(
-                        // backgroundColor: Colors.amber,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Image.asset(
                               chatList[index]['avatar'],
-                              height: MediaQuery.of(context).size.width - 100,
-                              width: MediaQuery.of(context).size.width - 100,
                             ),
                             const Row(
                               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,21 +63,34 @@ class ChatTabBarScreen extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 50),
-                                  child: Icon(Icons.chat),
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 50),
-                                    child: Icon(Icons.call)),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 50),
-                                  child: Icon(Icons.videocam_sharp),
+                                  child: Icon(
+                                    Icons.chat,
+                                    color: Colors.teal,
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                       vertical: 5, horizontal: 50),
-                                  child: Icon(Icons.info_outline),
+                                  child: Icon(
+                                    Icons.call,
+                                    color: Colors.teal,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 50),
+                                  child: Icon(
+                                    Icons.videocam_sharp,
+                                    color: Colors.teal,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 50),
+                                  child: Icon(
+                                    Icons.info_outline,
+                                    color: Colors.teal,
+                                  ),
                                 ),
                               ],
                             )
@@ -84,23 +101,25 @@ class ChatTabBarScreen extends StatelessWidget {
                   ),
                 );
               },
-              leading: CircleAvatar(
+              child: CircleAvatar(
                 backgroundImage: AssetImage(
                   chatList[index]['avatar'],
                 ),
               ),
-              title: Text(
-                chatList[index]['name'],
-                style:
-                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-              ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(chatListSubtitle[index]['Message'].toString()),
-              ),
-              trailing: const Text("Yesterday"),
-            );
-          }),
+            ),
+            title: Text(
+              chatList[index]['name'],
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(left: 0),
+              child: Text(chatListSubtitle[index]['Message'].toString()),
+            ),
+            trailing: const Text("Yesterday"),
+          );
+        },
+      ),
+
       // bottomNavigationBar: BottomNavigationBar(
       //   fixedColor: Colors.white,
       //   unselectedItemColor: Colors.grey,
