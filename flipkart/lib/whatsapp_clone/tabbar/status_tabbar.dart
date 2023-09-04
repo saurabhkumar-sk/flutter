@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
+import 'package:my_first_app/whatsapp_clone/screens/edit_stauts_screen.dart';
 
 class StatusTabBar extends StatelessWidget {
   const StatusTabBar({
@@ -21,12 +22,22 @@ class StatusTabBar extends StatelessWidget {
               width: 40,
               child: FloatingActionButton(
                 onPressed: () {
-                  log("Edit");
+                  // log("Edit");
                 },
                 backgroundColor: const Color.fromARGB(255, 167, 238, 203),
-                child: const Icon(
-                  Icons.edit,
-                  color: Color.fromRGBO(18, 140, 126, 2),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const EditStatusScreen(),
+                      ),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.edit,
+                    color: Color.fromRGBO(18, 140, 126, 2),
+                  ),
                 ),
               ),
             ),
@@ -58,20 +69,18 @@ class StatusBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ListTile(
-          iconColor: Colors.white,
-          leading: Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border:
-                    Border.all(color: const Color.fromARGB(255, 93, 90, 89)),
-                color: const Color.fromARGB(253, 40, 132, 122),
-              ),
-              child: const Icon(Icons.control_point_duplicate_sharp)),
-          title: const Text("My Status"),
-          subtitle: const Text("Tap to add status update"),
+        const ListTile(
+          leading: CircleAvatar(
+              backgroundColor: Colors.teal,
+              child: Icon(
+                Icons.control_point_duplicate_sharp,
+                color: Colors.white,
+              )),
+          title: Text(
+            "My Status",
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+          ),
+          subtitle: Text("Tap to add status update"),
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),

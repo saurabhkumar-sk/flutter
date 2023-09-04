@@ -75,7 +75,7 @@ List<Map<String, dynamic>> myList = [
 // Drawer Text List
 List<String> textList = ["Notification Perference", "Help Center", "Legal"];
 
-//Landing Page Images List(1st row images)
+//Landing Page Images List(1st row images)flipkart
 List<String> landingImages = [
   "assets/images/categories.png",
   "assets/images/offerzone.png",
@@ -115,7 +115,7 @@ List<Map<String, dynamic>> chatList = [
   {"avatar": "assets/images/avatar.png", "name": "John"},
   {"avatar": "assets/images/avatar2.jpg", "name": "Mahakal"},
   {"avatar": "assets/images/avatar3.jpg", "name": "Raj Kr"},
-  {"avatar": "assets/images/avatar3.jpg", "Name": "Raj Kr"},
+  // {"avatar": "assets/images/avatar3.jpg", "Name": "Kumar"},
 ];
 
 //status Tab List
@@ -131,7 +131,7 @@ List<Map<String, dynamic>> chatListSubtitle = [
   {"Message": "Message Description", 'time': " Today, 11:00"},
   {"Message": " New Message", 'time': " Today, 02:00"},
   {"Message": "Message Description 2", 'time': " Today, 22:00"},
-  {"Message": "Message Description 2", 'time': " Today, 10:00"},
+  // {"Message": "Message Description 2", 'time': " Today, 10:00"},
 ];
 
 List<Map<String, dynamic>> statusIcon = [
@@ -149,6 +149,31 @@ List<Map<String, dynamic>> menuText = [
     "text": "assets/images/avatar3.jpg",
   },
 ];
+
+List<Map<String, dynamic>> invitetowhatsapplist = [
+  {"Name": "Aaravi", 'invite': " Invite"},
+  {"Name": "Aditi", 'invite': "Invite"},
+  {"Name": "Aahana", 'invite': " Invite"},
+  {"Name": "Baadal", 'invite': "Invite"}];
+  // {"Name": "Bablu", 'time': " Today, 05:00"},
+  // {"Name": "Chaya", 'time': " Today, 23:00"},
+  // {"Name": "Golu", 'time': " Today, 05:00"},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import 'package:flutter/material.dart';
 

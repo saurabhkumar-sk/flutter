@@ -2,9 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
+import 'package:my_first_app/whatsapp_clone/screens/chat._screen.dart';
 
-class TextTabBar extends StatelessWidget {
-  const TextTabBar({
+class ChatTabBarScreen extends StatelessWidget {
+  const ChatTabBarScreen({
     super.key,
   });
 
@@ -13,14 +14,22 @@ class TextTabBar extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          log(
-            "chat",
-          );
+          log('message');
         },
         backgroundColor: const Color.fromRGBO(18, 140, 126, 2),
-        child: const Icon(
-          Icons.chat,
-          color: Colors.white,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ContactChatScreen(),
+              ),
+            );
+          },
+          child: const Icon(
+            Icons.chat,
+            color: Colors.white,
+          ),
         ),
       ),
       body: ListView.builder(
@@ -81,8 +90,9 @@ class TextTabBar extends StatelessWidget {
                 ),
               ),
               title: Text(
-                chatList[index]['name'].toString(),
-                style: const TextStyle(fontSize: 16),
+                chatList[index]['name'],
+                style:
+                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(left: 0),

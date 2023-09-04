@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:my_first_app/utils/url_list.dart';
 
 class CallsTabBar extends StatelessWidget {
   const CallsTabBar({

@@ -5,8 +5,8 @@ import 'package:my_first_app/whatsapp_clone/tabbar/chat_tabbar.dart';
 import 'package:my_first_app/whatsapp_clone/tabbar/community_tabbar.dart';
 import 'package:my_first_app/whatsapp_clone/tabbar/status_tabbar.dart';
 
-class LandingScreen extends StatelessWidget {
-  const LandingScreen({super.key});
+class WhatsAppLandingScreen extends StatelessWidget {
+  const WhatsAppLandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class LandingScreen extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(18, 140, 126, 2),
+          backgroundColor: Colors.teal,
           title: Title(
             color: Colors.white,
             child: const Text(
@@ -78,7 +78,7 @@ class LandingScreen extends StatelessWidget {
         body: const TabBarView(
           children: [
             Center(child: CommunityTabBar()),
-            Center(child: TextTabBar()),
+            Center(child: ChatTabBarScreen()),
             Center(child: StatusTabBar()),
             Center(child: CallsTabBar()),
           ],

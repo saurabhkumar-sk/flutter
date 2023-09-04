@@ -78,7 +78,7 @@ class LandingScreen extends StatelessWidget {
         body: const TabBarView(
           children: [
             Center(child: CommunityTabBar()),
-            Center(child: TextTabBar()),
+            Center(child: ChatTabBarScreen()),
             Center(child: StatusTabBar()),
             Center(child: CallsTabBar()),
           ],
