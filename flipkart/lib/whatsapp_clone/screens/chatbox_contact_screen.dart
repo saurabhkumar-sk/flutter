@@ -48,28 +48,54 @@ class ChatListContact extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-
-              shrinkWrap: true,
-              // itemCount: contactIconList.length,
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
+            Column(
+              children: [
+                const ListTile(
                   // tileColor: Colors.amber,
                   //  Icons icon=contactListIcon();
                   leading: CircleAvatar(
-                      backgroundColor: Colors.teal,
-                      child: Icon(
-                        contactIconList[index]['icons'],
-                        color: Colors.white,
-                      )),
-                  title: const Text(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      Icons.group,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: Text(
                     'New group',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ),
-                );
-              },
+                ),
+                ListTile(
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      Icons.person_add_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: const Text(
+                    'New contact',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  ),
+                  trailing: IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.qr_code)),
+                ),
+                const ListTile(
+                  // tileColor: Colors.amber,
+                  //  Icons icon=contactListIcon();
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      Icons.groups,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: Text(
+                    'New community',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  ),
+                ),
+              ],
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
