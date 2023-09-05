@@ -154,13 +154,72 @@ List<Map<String, dynamic>> invitetowhatsapplist = [
   {"Name": "Aaravi", 'invite': " Invite"},
   {"Name": "Aditi", 'invite': "Invite"},
   {"Name": "Aahana", 'invite': " Invite"},
-  {"Name": "Baadal", 'invite': "Invite"}];
-  // {"Name": "Bablu", 'time': " Today, 05:00"},
-  // {"Name": "Chaya", 'time': " Today, 23:00"},
-  // {"Name": "Golu", 'time': " Today, 05:00"},
+  {"Name": "Baadal", 'invite': "Invite"}
+];
+// {"Name": "Bablu", 'time': " Today, 05:00"},
+// {"Name": "Chaya", 'time': " Today, 23:00"},
+// {"Name": "Golu", 'time': " Today, 05:00"},
 
+List<Map<String, dynamic>> nameList = [
+  {"avatar": "assets/images/avatar1.png", "name": "Aaliyah"},
+  {"avatar": "assets/images/tony.jpg", "name": "Abigail"},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Bobby"},
+  {"avatar": "assets/images/avatar2.jpg", "name": " Bobby "},
+  {"avatar": "assets/images/images123.jpg", "name": "Bryson "},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Bryson"},
+  {"avatar": "assets/images/avatar1.png", "name": "Calvin"},
+  {"avatar": "assets/images/avatar1.png", "name": "Cullen"},
+  {"avatar": "assets/images/avatar.png", "name": "Damon"},
+  {"avatar": "assets/images/avatar2.jpg", "name": "Dream"},
+  {"avatar": "assets/images/avatar3.jpg", "name": "Elle"},
+  {"avatar": "assets/images/avatar3.jpg", "name": "Ellianna"},
+  {"avatar": "assets/images/avatar1.png", "name": "Finley"},
+  {"avatar": "assets/images/tony.jpg", "name": "Giavanna"},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Hailee"},
+  {"avatar": "assets/images/avatar2.jpg", "name": " Itzayana "},
+  {"avatar": "assets/images/images123.jpg", "name": "Jamie "},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Kalani"},
+  {"avatar": "assets/images/avatar1.png", "name": "Lyanna"},
+  {"avatar": "assets/images/avatar1.png", "name": "Mackenzie"},
+  {"avatar": "assets/images/avatar.png", "name": "Noor"},
+  {"avatar": "assets/images/avatar2.jpg", "name": "Mahakal"},
+  {"avatar": "assets/images/avatar3.jpg", "name": "Roselyn"},
+  {"avatar": "assets/images/avatar3.jpg", "name": "Kumar"},
+  {"avatar": "assets/images/avatar1.png", "name": "Sunny"},
+  {"avatar": "assets/images/tony.jpg", "name": "Zaria "},
+  {"avatar": "assets/images/avatar4.jpg", "name": "Zora"},
+];
 
-
+List<String> newgroupSubtitle = [
+  'Available',
+  'Busy',
+  'At schoolAt the movie',
+  'At work',
+  'Battery about to die',
+  'Can\'t talk, WhatsApp only',
+  'In a meeting',
+  'At the gym',
+  'Slepping',
+  'Urgent calls only',
+  'Available',
+  'Busy',
+  'At schoolAt the movie',
+  'At work',
+  'Battery about to die',
+  'Can\'t talk, WhatsApp only',
+  'In a meeting',
+  'At the gym',
+  'Slepping',
+  'Urgent calls only',
+  'Available',
+  'Busy',
+  'At schoolAt the movie',
+  'At work',
+  'Battery about to die',
+  'Can\'t talk, WhatsApp only',
+  'In a meeting', 
+  
+];
 
 
 

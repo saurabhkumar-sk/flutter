@@ -21,23 +21,29 @@ class NewCommunityScreen extends StatelessWidget {
           ),
         ),
         body: Column(
-          textDirection: TextDirection.ltr,
+          mainAxisSize: MainAxisSize.min,
           children: [
             const Center(
               child: Text(
                 'Create a new community',
                 style: TextStyle(
                   fontSize: 28,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxHeight: 100,
-                maxWidth: 300,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 320),
+                child: const Expanded(
+                  child: Text(
+                    'Bring together a neighbourhood, school or more. create topic-based groups for members, and easily send them admin annpuncements.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 17.3),
+                  ),
+                ),
               ),
-              child: const Text(
-                  'Bring together a neighbourhood, school or more. create topic-based groups for members, and easily send them admmin annpuncements'),
             ),
           ],
         ),

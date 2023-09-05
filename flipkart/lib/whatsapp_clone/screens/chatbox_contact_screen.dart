@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
 import 'package:my_first_app/whatsapp_clone/screens/new_community_screen.dart';
+import 'package:my_first_app/whatsapp_clone/screens/new_group_screen.dart';
 
 List<Map<String, IconData>> contactIconList = [
   {
@@ -51,19 +52,30 @@ class ChatListContact extends StatelessWidget {
           children: [
             Column(
               children: [
-                const ListTile(
+                ListTile(
                   // tileColor: Colors.amber,
                   //  Icons icon=contactListIcon();
-                  leading: CircleAvatar(
+                  leading: const CircleAvatar(
                     backgroundColor: Colors.teal,
                     child: Icon(
                       Icons.group,
                       color: Colors.white,
                     ),
                   ),
-                  title: Text(
-                    'New group',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NewGroupScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'New group',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18,),
+                    ),
                   ),
                 ),
                 ListTile(
@@ -89,7 +101,7 @@ class ChatListContact extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  title: InkWell(
+                  title: GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
