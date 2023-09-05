@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
+import 'package:my_first_app/whatsapp_clone/screens/new_community_screen.dart';
 
 List<Map<String, IconData>> contactIconList = [
   {
@@ -80,19 +81,28 @@ class ChatListContact extends StatelessWidget {
                   trailing: IconButton(
                       onPressed: () {}, icon: const Icon(Icons.qr_code)),
                 ),
-                const ListTile(
-                  // tileColor: Colors.amber,
-                  //  Icons icon=contactListIcon();
-                  leading: CircleAvatar(
+                ListTile(
+                  leading: const CircleAvatar(
                     backgroundColor: Colors.teal,
                     child: Icon(
                       Icons.groups,
                       color: Colors.white,
                     ),
                   ),
-                  title: Text(
-                    'New community',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NewCommunityScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'New community',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    ),
                   ),
                 ),
               ],
@@ -102,8 +112,9 @@ class ChatListContact extends StatelessWidget {
               child: Text(
                 'Contacts on WhatsApp',
                 style: TextStyle(
-                    // fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(255, 109, 106, 106)),
+                  // fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 109, 106, 106),
+                ),
               ),
             ),
             ListView.builder(

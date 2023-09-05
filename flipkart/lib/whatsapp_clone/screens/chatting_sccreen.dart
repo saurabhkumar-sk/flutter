@@ -45,69 +45,76 @@ class ChattingPage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.teal,
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.mic,
+          color: Colors.white,
+        ),
+      ),
       body: Column(
-        // mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 80, bottom: 8, left: 3),
-            child: TextField(
-              onChanged: (value) {
-                log(value, name: 'onChanged');
-              },
-              onEditingComplete: () {
-                log(textController.text, name: 'onEditingComplete');
-              },
-              onSubmitted: (value) {
-                log(value, name: 'onSumbitted');
-              },
-              decoration: const InputDecoration(
-                // icon: Icon(Icons.mic),
-
-                border: UnderlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50),
+          const Expanded(
+            child: SizedBox(),
+            // child: Align(
+            //     alignment: Alignment.bottomRight,
+            //     child: SizedBox(child: Icon(Icons.mic))),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                right: 80,
+                left: 5,
+                bottom: 13,
+              ),
+              child: TextField(
+                onChanged: (value) {
+                  log(value, name: 'onChanged');
+                },
+                onEditingComplete: () {
+                  log(textController.text, name: 'onEditingComplete');
+                },
+                onSubmitted: (value) {
+                  log(value, name: 'onSumbitted');
+                },
+                decoration: InputDecoration(
+                  border: const UnderlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  fillColor: Colors.white,
+                  filled: true,
+                  prefixIcon: const Icon(
+                    Icons.emoji_emotions_outlined,
+                  ),
+                  hintText: 'Message',
+                  hintStyle: const TextStyle(fontSize: 20),
+                  suffixIcon: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.attach_file_outlined),
+                      ),
+                      IconButton(
+                        // color: Colors.grey,
+                        onPressed: () {},
+                        icon: const Icon(Icons.currency_rupee),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.camera_alt_rounded),
+                      ),
+                    ],
                   ),
                 ),
-                fillColor: Colors.white,
-                filled: true,
-                prefixIcon: Icon(
-                  Icons.emoji_emotions_outlined,
-                ),
-                hintText: 'Message',
-                hintStyle: TextStyle(fontSize: 20),
-                suffixIcon: Icon(
-                  Icons.camera_alt_rounded,
-                ),
-                // suffix: Icon(Icons.mic)
-
-                //     ),)
-                //     ),,
-                // suffixIcon: Row(
-                //   mainAxisAlignment: MainAxisAlignment.end,
-                //   children: [
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: const Icon(Icons.attach_file_outlined),
-                //     ),
-                //     IconButton(
-                //       // color: Colors.grey,
-                //       onPressed: () {},
-                //       icon: const Icon(Icons.currency_rupee),
-                //     ),
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: const Icon(Icons.camera_alt_rounded),
-                //     ),
-                //   ],
-                // ),
               ),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: TextField(),
-          // )
         ],
       ),
     );
