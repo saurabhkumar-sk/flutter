@@ -21,28 +21,25 @@ class StatusTabBar extends StatelessWidget {
               height: 40,
               width: 40,
               child: FloatingActionButton(
+                heroTag: 'edit_button',
                 onPressed: () {
-                  // log("Edit");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EditStatusScreen(),
+                    ),
+                  );
                 },
                 backgroundColor: const Color.fromARGB(255, 167, 238, 203),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EditStatusScreen(),
-                      ),
-                    );
-                  },
-                  child: const Icon(
-                    Icons.edit,
-                    color: Color.fromRGBO(18, 140, 126, 2),
-                  ),
+                child: const Icon(
+                  Icons.edit,
+                  color: Color.fromRGBO(18, 140, 126, 2),
                 ),
               ),
             ),
           ),
           FloatingActionButton(
+            heroTag: 'camera_button',
             onPressed: () {
               log("camera");
             },
@@ -69,18 +66,33 @@ class StatusBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const ListTile(
-          leading: CircleAvatar(
-              backgroundColor: Colors.teal,
-              child: Icon(
-                Icons.control_point_duplicate_sharp,
-                color: Colors.white,
-              )),
-          title: Text(
+        ListTile(
+          leading: Stack(
+            children: [
+              const CircleAvatar(
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('assets/images/dp.webp'),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 22, top: 18),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.white,
+                  ),
+                  child: const Icon(
+                    Icons.add_circle,
+                    color: Colors.teal,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          title: const Text(
             "My Status",
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
           ),
-          subtitle: Text("Tap to add status update"),
+          subtitle: const Text("Tap to add status update"),
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),
@@ -101,7 +113,8 @@ class StatusBody extends StatelessWidget {
               ),
               title: Text(
                 chatList[index]['name'].toString(),
-                style: const TextStyle(fontSize: 16),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),
               subtitle: Text(
                 chatListSubtitle[index]['time'],
@@ -127,7 +140,8 @@ class StatusBody extends StatelessWidget {
               ),
               title: Text(
                 chatList[index]['name'].toString(),
-                style: const TextStyle(fontSize: 16),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),
               subtitle: Text(
                 chatListSubtitle[index]['time'],

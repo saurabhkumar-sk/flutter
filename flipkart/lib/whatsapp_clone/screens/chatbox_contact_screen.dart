@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
+import 'package:my_first_app/whatsapp_clone/screens/new_community_screen.dart';
+import 'package:my_first_app/whatsapp_clone/screens/new_group_screen.dart';
 
-List<Map<String, Icon>> contactIconList = [
+List<Map<String, IconData>> contactIconList = [
   {
-    'icons': const Icon(Icons.group),
+    'icons': Icons.group,
   },
-  {'icons': const Icon(Icons.group_add)},
-  {'icons': const Icon(Icons.qr_code)},
   {
-    'icons': const Icon(Icons.groups),
+    'icons': Icons.group_add,
+  },
+  // {'icons': const Icon(Icons.qr_code)},
+  {
+    'icons': Icons.groups,
   }
 ];
 
-class ContactChatScreen extends StatelessWidget {
-  const ContactChatScreen({super.key});
+class ChatListContact extends StatelessWidget {
+  const ChatListContact({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,37 +50,87 @@ class ContactChatScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListView.builder(
-              shrinkWrap: true,
-              // itemCount: contactIconList.length,
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return const ListTile(
+            Column(
+              children: [
+                ListTile(
                   // tileColor: Colors.amber,
                   //  Icons icon=contactListIcon();
-                  leading: CircleAvatar(
-                      backgroundColor: Colors.teal,
-                      child: Icon(
-                        Icons.group,
-                        color: Colors.white,
-                      )),
-                  title: Text(
-                    'New group',
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      Icons.group,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NewGroupScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'New group',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18,),
+                    ),
+                  ),
+                ),
+                ListTile(
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      Icons.person_add_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: const Text(
+                    'New contact',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ),
-                );
-              },
+                  trailing: IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.qr_code)),
+                ),
+                ListTile(
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      Icons.groups,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NewCommunityScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'New community',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               child: Text(
                 'Contacts on WhatsApp',
                 style: TextStyle(
-                    // fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(255, 109, 106, 106)),
+                  // fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 109, 106, 106),
+                ),
               ),
             ),
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: chatList.length,
               itemBuilder: (context, index) {
@@ -107,6 +161,7 @@ class ContactChatScreen extends StatelessWidget {
               ),
             ),
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: invitetowhatsapplist.length,
               itemBuilder: (context, index) {
@@ -121,9 +176,9 @@ class ContactChatScreen extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.w500, fontSize: 18),
                   ),
-                  trailing: Text(
-                    invitetowhatsapplist[index]['invite'],
-                    style: const TextStyle(color: Colors.teal, fontSize: 15),
+                  trailing: const Text(
+                    'Invite',
+                    style: TextStyle(color: Colors.teal, fontSize: 15),
                   ),
                 );
               },

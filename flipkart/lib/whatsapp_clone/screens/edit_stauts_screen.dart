@@ -8,7 +8,7 @@ class EditStatusScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 76, 138, 5),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
         leading: GestureDetector(
           onTap: () {
@@ -33,6 +33,28 @@ class EditStatusScreen extends StatelessWidget {
             child: Icon(Icons.color_lens),
           ),
         ],
+      ),
+      body: const Center(
+        child: TextField(
+          // cursorOpacityAnimates: true,
+          cursorColor: Colors.white,
+          style: TextStyle(
+            fontSize: 40,
+            color: Colors.white,
+          ),
+          maxLines: 10,
+          textAlign: TextAlign.center,
+          // textInputAction: TextInputAction.done,
+          decoration: InputDecoration(
+            hintStyle: TextStyle(
+              color: Color.fromARGB(255, 159, 159, 159),
+              fontSize: 40,
+              fontWeight: FontWeight.normal,
+            ),
+            border: InputBorder.none,
+            hintText: 'Type a status',
+          ),
+        ),
       ),
     );
   }
