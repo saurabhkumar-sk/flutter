@@ -34,6 +34,28 @@ class EditStatusScreen extends StatelessWidget {
           ),
         ],
       ),
+      body: const Center(
+        child: TextField(
+          // cursorOpacityAnimates: true,
+          cursorColor: Colors.white,
+          style: TextStyle(
+            fontSize: 40,
+            color: Colors.white,
+          ),
+          maxLines: 10,
+          textAlign: TextAlign.center,
+          // textInputAction: TextInputAction.done,
+          decoration: InputDecoration(
+            hintStyle: TextStyle(
+              color: Color.fromARGB(255, 159, 159, 159),
+              fontSize: 40,
+              fontWeight: FontWeight.normal,
+            ),
+            border: InputBorder.none,
+            hintText: 'Type a status',
+          ),
+        ),
+      ),
     );
   }
 }
