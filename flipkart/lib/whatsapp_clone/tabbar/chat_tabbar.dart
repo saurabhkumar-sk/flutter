@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/url_list.dart';
 import 'package:my_first_app/whatsapp_clone/screens/chatbox_contact_screen.dart';
@@ -45,57 +43,57 @@ class ChatTabBarScreen extends StatelessWidget {
               onTap: () {
                 showDialog(
                   context: context,
-                  builder: (context) => Padding(
-                    padding:
-                        const EdgeInsets.only(left: 30, right: 30, bottom: 150),
-                    child: FittedBox(
-                      // fit: BoxFit.fill,
-                      child: Dialog(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Image.asset(
-                              chatList[index]['avatar'],
-                            ),
-                            const Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 50),
-                                  child: Icon(
-                                    Icons.chat,
-                                    color: Colors.teal,
-                                  ),
+                  builder: (context) => FittedBox(
+                    // fit: BoxFit.fill,
+                    child: Dialog(
+                      shape: ContinuousRectangleBorder(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            chatList[index]['avatar'],
+                            height: MediaQuery.of(context).size.width - 50,
+                            width: MediaQuery.of(context).size.width - 50,
+                            fit: BoxFit.cover,
+                          ),
+                          const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 30),
+                                child: Icon(
+                                  Icons.chat,
+                                  color: Colors.teal,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 50),
-                                  child: Icon(
-                                    Icons.call,
-                                    color: Colors.teal,
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 30),
+                                child: Icon(
+                                  Icons.call,
+                                  color: Colors.teal,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 50),
-                                  child: Icon(
-                                    Icons.videocam_sharp,
-                                    color: Colors.teal,
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 30),
+                                child: Icon(
+                                  Icons.videocam_sharp,
+                                  color: Colors.teal,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 50),
-                                  child: Icon(
-                                    Icons.info_outline,
-                                    color: Colors.teal,
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 30),
+                                child: Icon(
+                                  Icons.info_outline,
+                                  color: Colors.teal,
                                 ),
-                              ],
-                            )
-                          ],
-                        ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   ),

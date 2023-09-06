@@ -20,9 +20,9 @@ class CallsTabBar extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body: Column(
+      body: const Column(
         children: [
-          const ListTile(
+          ListTile(
             iconColor: Colors.white,
             leading: CircleAvatar(
                 backgroundColor: Colors.teal,
@@ -37,7 +37,7 @@ class CallsTabBar extends StatelessWidget {
             ),
             subtitle: Text("Share a link for your WhatsApp call"),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 10),
             child: Row(
               children: [
@@ -48,43 +48,9 @@ class CallsTabBar extends StatelessWidget {
               ],
             ),
           ),
-          Column(
-            children: [
-              ListTile(
-                iconColor: Colors.white,
-                leading: Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    // color: const Color.fromRGBO(18, 140, 126, 2),
-                  ),
-                  child: Stack(
-                    // fit: StackFit.expand,
-                    clipBehavior: Clip.none,
-                    children: [
-                      Image.asset(
-                        'assets/images/avatar.png',
-                      ),
-                      const Positioned(
-                        left: 5,
-                        child: CircleAvatar(
-                          backgroundImage:
-                              AssetImage('assets/images/avatar4.jpg'),
-                        ),
-                      ),
-                      //  const  Icon(Icons.groups_2_outlined)
-                    ],
-                  ),
-                ),
-                title: const Text(
-                  "Saurabh",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                ),
-                subtitle: const Text(" ↙ Yesterday  00:00"),
-              ),
-            ],
-          ),
+          // ListTile(
+          //   title: Text(chatList[index]['avatar']),
+          // )
         ],
       ),
     );
@@ -123,3 +89,7 @@ class CallsTabBar extends StatelessWidget {
 //             },
 //           ),
 //         ),
+
+
+
+

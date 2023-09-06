@@ -81,10 +81,12 @@ class ChattingPage extends StatelessWidget {
                   log(value, name: 'onSumbitted');
                 },
                 decoration: InputDecoration(
-                  border: const UnderlineInputBorder(
+                  contentPadding: EdgeInsets.zero,
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(50),
                     ),
+                    borderSide: BorderSide.none,
                   ),
                   fillColor: Colors.white,
                   filled: true,
@@ -94,7 +96,7 @@ class ChattingPage extends StatelessWidget {
                   hintText: 'Message',
                   hintStyle: const TextStyle(fontSize: 20),
                   suffixIcon: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
                         onPressed: () {},

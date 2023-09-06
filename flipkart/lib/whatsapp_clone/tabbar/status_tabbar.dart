@@ -112,7 +112,7 @@ class StatusBody extends StatelessWidget {
                 ),
               ),
               title: Text(
-                chatList[index]['name'].toString(),
+                chatList[index]['name'],
                 style:
                     const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),
@@ -139,7 +139,7 @@ class StatusBody extends StatelessWidget {
                 ),
               ),
               title: Text(
-                chatList[index]['name'].toString(),
+                chatList[index]['name'],
                 style:
                     const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),

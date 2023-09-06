@@ -36,12 +36,10 @@ class NewCommunityScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 320),
-                child: const Expanded(
-                  child: Text(
-                    'Bring together a neighbourhood, school or more. create topic-based groups for members, and easily send them admin annpuncements.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 17.3),
-                  ),
+                child: const Text(
+                  'Bring together a neighbourhood, school or more. create topic-based groups for members, and easily send them admin annpuncements.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 17.3),
                 ),
               ),
             ),
