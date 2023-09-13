@@ -1,5 +1,6 @@
 //Drawer list (images links)
 
+
 List<Map<String, dynamic>> myList = [
   {
     'src':
@@ -217,14 +218,23 @@ List<String> newgroupSubtitle = [
   'At work',
   'Battery about to die',
   'Can\'t talk, WhatsApp only',
-  'In a meeting', 
-  
+  'In a meeting',
 ];
 
+// List<ProductModel> products = List.generate(
+//   20,
+//   (index) => ProductModel(
+//       name: 'Product ${index + 1}',
+//       price: 101 + index,
+//       image: 'https://picsum.photos/id/${index + 5}/200/300',
+//       description: 'This is new product for your ease.',
+//       incart: false),
+// );
 
 
 
 
+ 
 
 
 
