@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/cart_screen.dart';
-import 'package:my_first_app/providers/cart_provider.dart';
+import 'package:my_first_app/Screens/consumer_cart_screen.dart';
+import 'package:my_first_app/providers/selector_cart_provider.dart';
 import 'package:provider/provider.dart';
 
-class ProductScreen extends StatefulWidget {
-  const ProductScreen({super.key});
+class ConsumerProductScreen extends StatefulWidget {
+  const ConsumerProductScreen({super.key});
 
   @override
-  State<ProductScreen> createState() => _ProductScreenState();
+  State<ConsumerProductScreen> createState() => _ConsumerProductScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> {
+class _ConsumerProductScreenState extends State<ConsumerProductScreen> {
   late CartProvider provider;
 
   @override
@@ -38,7 +38,7 @@ class _ProductScreenState extends State<ProductScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const CartScreen(),
+                  builder: (context) => const ConsumerCartScreen(),
                 ),
               );
             },
@@ -83,19 +83,19 @@ class _ProductScreenState extends State<ProductScreen> {
                     Center(
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          if (products.cartproducts
+                          if (products.cartProducts
                               .contains(products.products[index])) {
                           } else {
                             provider.addToCart(products.products[index]);
                           }
                         },
                         icon: Icon(
-                          products.cartproducts
+                          products.cartProducts
                                   .contains(products.products[index])
                               ? Icons.done
                               : Icons.shopping_cart,
                         ),
-                        label: Text(products.cartproducts
+                        label: Text(products.cartProducts
                                 .contains(products.products[index])
                             ? 'Added'
                             : 'Add to cart'),

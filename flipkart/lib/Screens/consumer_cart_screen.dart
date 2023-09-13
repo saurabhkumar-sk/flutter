@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/providers/cart_provider.dart';
+import 'package:my_first_app/providers/selector_cart_provider.dart';
 import 'package:provider/provider.dart';
 
-class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+class ConsumerCartScreen extends StatefulWidget {
+  const ConsumerCartScreen({super.key});
 
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  State<ConsumerCartScreen> createState() =>_ConsumerCartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> {
+class _ConsumerCartScreenState extends State<ConsumerCartScreen> {
   late CartProvider provider;
 
   @override
@@ -30,17 +30,17 @@ class _CartScreenState extends State<CartScreen> {
         ),
       ),
       body: Consumer<CartProvider>(builder: (context, cart, child) {
-        return cart.cartproducts.isEmpty
+        return cart.cartProducts.isEmpty
             ? const Center(
                 child: Text('Your cart is empty'),
               )
             : ListView.builder(
-                itemCount: cart.cartproducts.length,
+                itemCount: cart.cartProducts.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                    leading: Image.network(cart.cartproducts[index].image),
-                    title: Text(cart.cartproducts[index].name),
-                    subtitle: Text(cart.cartproducts[index].description),
+                    leading: Image.network(cart.cartProducts[index].image),
+                    title: Text(cart.cartProducts[index].name),
+                    subtitle: Text(cart.cartProducts[index].description),
                     trailing: IconButton(
                         onPressed: () {
                           provider.removeFromCart(index);
