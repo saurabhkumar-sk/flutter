@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/consumer_product_screen.dart';
+import 'package:my_first_app/Screens/login.dart';
+import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/selector_cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => CartProvider(),
-        ),
+        ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -51,8 +51,9 @@ class MyApp extends StatelessWidget {
         // home: const GridViewScreen(),
         // home: const SilverAppBarScreen(),
         // home: const FbLandingScreen(),
-        home: const ConsumerProductScreen(),
+        // home: const ConsumerProductScreen(),
         // home: const SelectorProductScreen(),
+        home: const LoginScreen(),
       ),
     );
   }
