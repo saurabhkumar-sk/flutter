@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/api_user_screen.dart';
+import 'package:my_first_app/Screens/counter_using_provider.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
+import 'package:my_first_app/providers/count_provider.dart';
 import 'package:my_first_app/providers/selector_cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -13,11 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => CartProvider()),
-        ChangeNotifierProvider(create: (context) => AuthProvider()),
-      ],
+    return ChangeNotifierProvider(
+      create: (context) => CountProvider(),
+      //  MultiProvider(
+      //   providers: [
+      //     ChangeNotifierProvider(create: (context) => CartProvider()),
+      //     ChangeNotifierProvider(create: (context) => AuthProvider()),
+      // ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Clone",
@@ -54,7 +57,8 @@ class MyApp extends StatelessWidget {
         // home: const ConsumerProductScreen(),
         // home: const SelectorProductScreen(),
         // home: const LoginScreen(),
-        home: const ApiUserScreen(),
+        // home: const ApiUserScreen(),
+        home: const CounterScreenProvider(),
       ),
     );
   }
