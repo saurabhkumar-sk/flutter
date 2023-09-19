@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/Screens/counter_using_provider.dart';
+import 'package:my_first_app/Screens/practice_count.dart';
+import 'package:my_first_app/btn/my_btn_screen.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/count_provider.dart';
+import 'package:my_first_app/providers/count_provider_practice.dart';
 import 'package:my_first_app/providers/selector_cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => CountProvider(),
+      // ChangeNotifierProvider(
+      //   create: (context) => CountProvider(),
       //  MultiProvider(
       //   providers: [
       //     ChangeNotifierProvider(create: (context) => CartProvider()),
@@ -42,6 +47,7 @@ class MyApp extends StatelessWidget {
         //   name: 'login',
         // ),
         // home: const StatefulWidgetScreen(),
+        // home: const MyButtons(),
         // home: const WhatsAppLandingScreen(),
         // home: const WrapWidgetScreen(),
         // home: const CardWeidget(),
@@ -59,6 +65,7 @@ class MyApp extends StatelessWidget {
         // home: const LoginScreen(),
         // home: const ApiUserScreen(),
         home: const CounterScreenProvider(),
+        // home: const CounterScreensPractice(),
       ),
     );
   }

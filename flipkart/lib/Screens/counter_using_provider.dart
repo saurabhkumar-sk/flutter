@@ -12,7 +12,7 @@ class CounterScreenProvider extends StatefulWidget {
 }
 
 class _CounterScreenPRoviderState extends State<CounterScreenProvider> {
-  int count = 0;
+  // int count = 0;
   // final provider = CountProvider();
 
   @override
@@ -28,6 +28,9 @@ class _CounterScreenPRoviderState extends State<CounterScreenProvider> {
             builder: (context, value, child) {
               return Center(child: Text(value.counter.toString()));
             },
+          ),
+          const SizedBox(
+            height: 20,
           ),
           ElevatedButton(
             onPressed: () {
