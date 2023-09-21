@@ -5,24 +5,23 @@ import 'package:my_first_app/api_services/random_services.dart';
 import 'package:my_first_app/models/random_models.dart';
 
 class RandomUserServices extends RandomServices {
-  Future<List<RandomUser>?> getUserApis() async {
+  Future<RandomUser?> getRandomUserApis() async {
     try {
       final response = await getHttp('');
 
-      log(response.statusCode.toString(), name: 'Status');
-      log(response.body, name: 'body');
+      // log(response.statusCode.toString(), name: 'Status');
+      // log(response.body, name: 'getRandomUserApis');
 
-      final userMapList = json.decode(response.body);
+      final userMap = json.decode(response.body);
 
       if (response.statusCode != 200) return null;
-      List<RandomUser> userList =
-          List.from(userMapList.map((e) => RandomUser.fromJson(e)));
+      RandomUser user = RandomUser.fromJson(userMap['results'][0]);
 
-      log(userMapList.toString(), name: 'getUserApi response');
+      log(userMap.toString(), name: 'getRandomUserApi response');
 
-      return userList;
+      return user;
     } catch (e, s) {
-      log(e.toString(), name: 'error getUserApis', stackTrace: s);
+      log(e.toString(), name: 'error getRandomUserApis', stackTrace: s);
       return null;
     }
   }

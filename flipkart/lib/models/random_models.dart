@@ -1,46 +1,62 @@
 class RandomUser {
-  final int id;
+  final ID id;
   final Name name;
   final String gender;
-  final String userName;
+  // final String userName;
   final Dob dateOfBirth;
   final String phone;
-  final String website;
+  // final String website;
   final Address address;
   // final Company company;
-  final Picture picture;
+  final Images images;
 
   RandomUser({
     required this.id,
     required this.name,
-    required this.userName,
+    // required this.userName,
     required this.dateOfBirth,
     required this.gender,
     required this.phone,
-    required this.website,
+    // required this.website,
     required this.address,
     // required this.company,
-    required this.picture,
+    required this.images,
   });
   factory RandomUser.fromJson(Map<String, dynamic> json) {
     return RandomUser(
-      id: json['id'],
+      id: ID.fromJson(json['id']),
       name: Name.fromJson(json['name']),
-      userName: json['username'],
-      dateOfBirth: Dob.fromJson(json['date']),
+      // // userName: json['username'],
+      dateOfBirth: Dob.fromJson(json['dob']),
       gender: json['gender'],
       phone: json['phone'],
-      website: json['website'],
-      address: Address.fromJson(json['address']),
+      // // website: json['website'],
+      address: Address.fromJson(json['location']),
       // company: Company.fromJson(json['company']),
-      picture:Picture.fromJson(json['picture']),
+      images: Images.fromJson(json['picture']),
+    );
+  }
+}
+
+class ID {
+  final String? value;
+  final String name;
+
+  ID({
+    required this.value,
+    required this.name,
+  });
+  factory ID.fromJson(Map<String, dynamic> json) {
+    return ID(
+      value: json['value'],
+      name: json['name'],
     );
   }
 }
 
 class Dob {
   final String date;
-  final String age;
+  final int age;
 
   Dob({required this.date, required this.age});
   factory Dob.fromJson(Map<String, dynamic> json) {
@@ -70,18 +86,18 @@ class Name {
   }
 }
 
-class Picture {
+class Images {
   final String large;
   final String medium;
   final String thumbnail;
 
-  Picture({
+  Images({
     required this.large,
     required this.medium,
     required this.thumbnail,
   });
-  factory Picture.fromJson(Map<String, dynamic> json) {
-    return Picture(
+  factory Images.fromJson(Map<String, dynamic> json) {
+    return Images(
       large: json['large'],
       medium: json['medium'],
       thumbnail: json['thumbnail'],
@@ -101,29 +117,26 @@ class Address {
   final String city;
   final String state;
   final String country;
-  final String zipcode;
 
   Address({
     required this.street,
     required this.city,
     required this.state,
     required this.country,
-    required this.zipcode,
   });
 
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
-      street: json['street'],
+      street: Street.fromJson(json['street']),
       city: json['city'],
       state: json['state'],
       country: json['country'],
-      zipcode: json['zipcode'],
     );
   }
 }
 
 class Street {
-  final String number;
+  final int number;
   final String name;
 
   Street({
