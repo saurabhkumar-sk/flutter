@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/btn/button.dart';
+import 'package:my_first_app/Screens/random_api_user_screen.dart';
 import 'package:my_first_app/providers/count_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -61,7 +61,8 @@ class MyApp extends StatelessWidget {
         // home: const ApiUserScreen(),
         // home: const CounterScreenProvider(),
         // home: const CounterScreensPractice(),
-        home: const ButtonCircle(),
+        // home: const ButtonCircle(),
+        home: const RandomUserScreen(),
       ),
     );
   }
