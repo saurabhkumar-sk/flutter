@@ -16,6 +16,9 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
 
   bool isLoading = true;
 
+  late String changeValue;
+  late String changeTitle;
+
   @override
   void initState() {
     getUser();
@@ -29,6 +32,9 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
     service.getRandomUserApis().then((value) {
       user = value;
       isLoading = false;
+      changeValue =
+          '${user!.name.title}  ${user!.name.first}  ${user!.name.title}';
+      changeTitle = 'Hi, My name is';
       setState(() {});
     });
   }
@@ -36,6 +42,7 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
           title: const Center(
         child: Text(
@@ -50,7 +57,14 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : user == null
-              ? const Text('Something went wrong')
+              ? const Text(
+                  'Something went wrong',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                )
               : Column(
                   children: [
                     const SizedBox(height: 30),
@@ -88,75 +102,107 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      'Hi, My name is',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500),
-                    ),
                     Center(
                       child: Text(
-                        '${user!.name.title}  ${user!.name.first}  ${user!.name.title}',
+                        changeTitle,
                         style: const TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                     const SizedBox(
                       height: 25,
                     ),
+                    Center(
+                      child: Text(
+                        changeValue,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconButton(
-                          color: Colors.grey,
-                          highlightColor: Colors.green,
-                          iconSize: 35,
-                          onPressed: () {
-                            const Text(
-                              'Hi, My name is',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500),
-                            );
-                            Center(
-                              child: Text(
-                                '${user!.name.title}  ${user!.name.first}  ${user!.name.title}',
-                                style: const TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold),
-                              ),
-                            );
-                          },
-                          icon: const Icon(Icons.emoji_emotions_outlined),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: IconButton(
+                            color: Colors.grey,
+                            highlightColor: Colors.green,
+                            iconSize: 35,
+                            onPressed: () {
+                              changeTitle = 'Hi, My name is';
+
+                              changeValue =
+                                  '${user!.name.title}  ${user!.name.first}  ${user!.name.title}';
+                              setState(() {});
+                            },
+                            icon: const Icon(Icons.emoji_emotions_outlined),
+                          ),
                         ),
-                        IconButton(
-                          color: Colors.grey,
-                          highlightColor: Colors.green,
-                          iconSize: 35,
-                          onPressed: () {},
-                          icon: const Icon(Icons.calendar_today),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: IconButton(
+                            color: Colors.grey,
+                            highlightColor: Colors.green,
+                            iconSize: 35,
+                            onPressed: () {
+                              changeTitle = 'My birthday is';
+                              changeValue = user!.dateOfBirth.date;
+                              setState(() {});
+                            },
+                            icon: const Icon(Icons.calendar_today),
+                          ),
                         ),
-                        IconButton(
-                          color: Colors.grey,
-                          highlightColor: Colors.green,
-                          iconSize: 35,
-                          onPressed: () {},
-                          icon: const Icon(Icons.location_on_outlined),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: IconButton(
+                            color: Colors.grey,
+                            highlightColor: Colors.green,
+                            iconSize: 35,
+                            onPressed: () {
+                              changeTitle = 'My Address is';
+
+                              changeValue =
+                                  '${user!.address.street.name}  ${user!.address.city}  ${user!.address.state}  ${user!.address.country}';
+                              setState(() {});
+                            },
+                            icon: const Icon(Icons.location_on_outlined),
+                          ),
                         ),
-                        IconButton(
-                          color: Colors.grey,
-                          highlightColor: Colors.green,
-                          iconSize: 35,
-                          onPressed: () {},
-                          icon: const Icon(Icons.call),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: IconButton(
+                            color: Colors.grey,
+                            highlightColor: Colors.green,
+                            iconSize: 35,
+                            onPressed: () {
+                              changeTitle = 'My Phone number is';
+                              changeValue = user!.phone;
+                              setState(() {});
+                            },
+                            icon: const Icon(Icons.call),
+                          ),
                         ),
-                        IconButton(
-                          color: Colors.grey,
-                          highlightColor: Colors.green,
-                          iconSize: 35,
-                          onPressed: () {},
-                          icon: const Icon(Icons.lock),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: IconButton(
+                            color: Colors.grey,
+                            highlightColor: Colors.green,
+                            iconSize: 35,
+                            onPressed: () {
+                              changeTitle = 'My Id is';
+                              changeValue = user!.id.name;
+                              setState(() {});
+                            },
+                            icon: const Icon(Icons.lock),
+                          ),
                         ),
                       ],
                     )
