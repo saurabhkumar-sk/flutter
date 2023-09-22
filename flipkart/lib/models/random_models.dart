@@ -2,24 +2,18 @@ class RandomUser {
   final ID id;
   final Name name;
   final String gender;
-  // final String userName;
   final Dob dateOfBirth;
   final String phone;
-  // final String website;
   final Address address;
-  // final Company company;
   final Images images;
 
   RandomUser({
     required this.id,
     required this.name,
-    // required this.userName,
     required this.dateOfBirth,
     required this.gender,
     required this.phone,
-    // required this.website,
     required this.address,
-    // required this.company,
     required this.images,
   });
   factory RandomUser.fromJson(Map<String, dynamic> json) {
@@ -36,6 +30,8 @@ class RandomUser {
       images: Images.fromJson(json['picture']),
     );
   }
+
+  
 }
 
 class ID {
