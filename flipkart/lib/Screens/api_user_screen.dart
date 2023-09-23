@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/Screens/provider_user_screen.dart';
 import 'package:my_first_app/api_services/user_service.dart';
 import 'package:my_first_app/models/api_users.dart';
 
@@ -23,6 +24,17 @@ class _ApiUserScreenState extends State<ApiUserScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('API User Screen'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProviderUserScreen(),
+                      ));
+                },
+                icon: const Icon(Icons.person))
+          ],
         ),
         body: FutureBuilder(
           future: service.getUsersApi(),

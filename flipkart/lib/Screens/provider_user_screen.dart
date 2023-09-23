@@ -28,6 +28,12 @@ class _ProviderUserScreenState extends State<ProviderUserScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    provider.apiUserList.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -46,7 +52,7 @@ class _ProviderUserScreenState extends State<ProviderUserScreen> {
           builder: (context, users, child) => loading
               ? const Center(child: CircularProgressIndicator())
               : !loading && users.isEmpty
-                  ? const Text('Something went wrong')
+                  ? const Center(child: Text('Something went wrong'))
                   : ListView.separated(
                       separatorBuilder: (context, index) => const Divider(),
                       itemCount: users.length,
