@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/random_api_user_screen.dart';
-import 'package:my_first_app/providers/count_provider.dart';
+import 'package:my_first_app/Screens/provider_user_screen.dart';
+import 'package:my_first_app/providers/authantification_provider.dart';
+import 'package:my_first_app/providers/consumer_cart_provider.dart';
+import 'package:my_first_app/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -12,15 +14,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CountProvider(),
-      // ChangeNotifierProvider(
-      //   create: (context) => CountProvider(),
-      //  MultiProvider(
-      //   providers: [
-      //     ChangeNotifierProvider(create: (context) => CartProvider()),
-      //     ChangeNotifierProvider(create: (context) => AuthProvider()),
-      // ],
+    return
+        // ChangeNotifierProvider(
+        //   create: (context) => CountProvider(),
+        // ChangeNotifierProvider(
+        //   create: (context) => CountProvider(),
+        //or
+        MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Clone",
@@ -62,7 +67,7 @@ class MyApp extends StatelessWidget {
         // home: const CounterScreenProvider(),
         // home: const CounterScreensPractice(),
         // home: const ButtonCircle(),
-        home: const RandomUserScreen(),
+        home: const ProviderUserScreen(),
       ),
     );
   }

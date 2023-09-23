@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class RandomServices {
   Future<http.Response> getHttp(String api) async {
-    final url = RandomUrls.baseurls + api;
+    final url = RandomUrls.baseUrl+ api;
     log(url, name: 'getHttp');
 
     final response = await http.get(

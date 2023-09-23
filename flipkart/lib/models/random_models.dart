@@ -20,13 +20,10 @@ class RandomUser {
     return RandomUser(
       id: ID.fromJson(json['id']),
       name: Name.fromJson(json['name']),
-      // // userName: json['username'],
       dateOfBirth: Dob.fromJson(json['dob']),
       gender: json['gender'],
       phone: json['phone'],
-      // // website: json['website'],
       address: Address.fromJson(json['location']),
-      // company: Company.fromJson(json['company']),
       images: Images.fromJson(json['picture']),
     );
   }
@@ -100,13 +97,6 @@ class Images {
     );
   }
 }
-
-// class Company {
-//   final String name;
-//   final String catchPhrase;
-//   final String
-
-// }
 
 class Address {
   final Street street;
