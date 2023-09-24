@@ -24,4 +24,16 @@ class UserService extends BaseService {
       return null;
     }
   }
+
+  //post
+  Future<void> createPostApi(Map<String, dynamic> body) async {
+    final response = await postHttp(api: ApiUrls.posts, data: body);
+    log(response.body);
+
+    if (response.statusCode == 201) {
+      log('Post Created sucessfully', name: 'createPostApi');
+    } else {
+      log('Some error occured', name: 'error createPostApi');
+    }
+  }
 }

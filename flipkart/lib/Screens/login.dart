@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
+import 'package:my_first_app/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,17 +12,35 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   late AuthProvider provider;
+  late UserProvider userProvider;
 
   @override
   void initState() {
     super.initState();
     provider = Provider.of<AuthProvider>(context, listen: false);
+    userProvider = Provider.of(context, listen: false);
   }
 
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
 
+  final titleController = TextEditingController();
+  final bodyController = TextEditingController();
+  final userIdController = TextEditingController();
+
   final counter = ValueNotifier(0);
+
+
+  @override
+  void dispose() {
+    super.dispose();
+    passwordController.dispose();
+    emailController.dispose();
+    titleController.dispose();
+    userIdController.dispose();
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +76,12 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20),
             // Text(emailController.text),
             TextField(
-              controller: emailController,
-              onChanged: (value) {
-                // provider.setEmail = value;
-                setState(() {});
-              },
+              controller: titleController,
+              // onChanged: (value) {
+              //   setState(() {});
+              // },
               decoration: const InputDecoration(
-                hintText: 'Email',
+                hintText: 'Title',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -71,20 +89,63 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 20,
             ),
             TextField(
-              controller: passwordController,
+              controller: bodyController,
               // onChanged: (value) => provider.setPassword = value,
               decoration: const InputDecoration(
-                hintText: 'Password',
+                hintText: 'Body',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            TextField(
+              controller: userIdController,
+              // onChanged: (value) => provider.setPassword = value,
+              decoration: const InputDecoration(
+                hintText: 'UserId',
                 border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                provider.login(emailController.text, passwordController.text);
+                userProvider.createPost(
+                  title: titleController.text,
+                  body: bodyController.text,
+                  userId: userIdController.text,
+                );
               },
-              child: const Text('Login'),
+              child: const Text('Create new post'),
             )
+            // TextField(
+            //   controller: emailController,
+            //   onChanged: (value) {
+            //     // provider.setEmail = value;
+            //     setState(() {});
+            //   },
+            //   decoration: const InputDecoration(
+            //     hintText: 'Email',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // TextField(
+            //   controller: passwordController,
+            //   // onChanged: (value) => provider.setPassword = value,
+            //   decoration: const InputDecoration(
+            //     hintText: 'Password',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            // const SizedBox(height: 10),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     provider.login(emailController.text, passwordController.text);
+            //   },
+            //   child: const Text('Login'),
+            // )
           ],
         ),
       ),

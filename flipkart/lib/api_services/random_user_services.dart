@@ -7,6 +7,8 @@ import 'package:my_first_app/models/api_users.dart';
 import 'package:my_first_app/models/random_models.dart';
 import 'package:my_first_app/utils/random_apis.dart';
 
+
+//json
 class UserService extends BaseService {
   Future<List<ApiUser>?> getUsersApi() async {
     try {
@@ -28,6 +30,7 @@ class UserService extends BaseService {
   }
 }
 
+// random api
 class RandomUserServices extends RandomServices {
   Future<RandomUser?> getRandomUserApis() async {
     try {

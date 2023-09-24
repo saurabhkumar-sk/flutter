@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:my_first_app/api_services/random_user_services.dart';
+import 'package:my_first_app/api_services/user_service.dart';
+// import 'package:my_first_app/api_services/random_user_services.dart';
 import 'package:my_first_app/models/api_users.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -13,6 +16,19 @@ class UserProvider extends ChangeNotifier {
       apiUserList = response;
     }
     notifyListeners();
+  }
 
+  //post
+  Future<void> createPost({required String title,required String body,required String userId}) async {
+    try {
+      Map<String, dynamic> data = {
+        "title": title,
+        "body": body,
+        "userId": userId
+      };
+      await service.createPostApi(data);
+    } catch (e, s) {
+      log(e.toString(), name: 'error catch createPost', stackTrace: s);
+    }
   }
 }
