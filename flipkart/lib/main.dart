@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/login.dart';
+import 'package:my_first_app/Screens/form_validation_screen.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/consumer_cart_provider.dart';
 import 'package:my_first_app/providers/user_provider.dart';
@@ -34,12 +34,6 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.blue,
-
-            ///flipkart
-
-            ///whatApp
-            // backgroundColor: Colors.teal,
-
             iconTheme: IconThemeData(color: Colors.white),
           ),
         ),
@@ -62,12 +56,13 @@ class MyApp extends StatelessWidget {
         // home: const FbLandingScreen(),
         // home: const ConsumerProductScreen(),
         // home: const SelectorProductScreen(),
-        home: const LoginScreen(),
+        // home: const LoginScreen(), //Post Api screen
         // home: const ApiUserScreen(),
         // home: const CounterScreenProvider(),
         // home: const CounterScreensPractice(),
         // home: const ButtonCircle(),
         // home: const ApiUserScreen(),
+        home: const FormScreen(),
       ),
     );
   }

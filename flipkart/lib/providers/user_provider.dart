@@ -19,12 +19,25 @@ class UserProvider extends ChangeNotifier {
   }
 
   //post
-  Future<void> createPost({required String title,required String body,required String userId}) async {
+  String? _title;
+  // String? get gettitle => _title;
+  set setTitle(String? val) => _title = val;
+
+  String? _body;
+  set setbody(String? value) => _body = value;
+
+  Future<void> createPost(
+      // {
+      // required String title,
+      // required String body,
+      // required String userId,
+      // }
+      ) async {
     try {
       Map<String, dynamic> data = {
-        "title": title,
-        "body": body,
-        "userId": userId
+        "title": _title,
+        "body": _body,
+        "userId": "userId"
       };
       await service.createPostApi(data);
     } catch (e, s) {

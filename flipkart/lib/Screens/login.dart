@@ -18,29 +18,26 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     provider = Provider.of<AuthProvider>(context, listen: false);
-    userProvider = Provider.of(context, listen: false);
+    userProvider = Provider.of<UserProvider>(context, listen: false);
   }
 
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
 
-  final titleController = TextEditingController();
-  final bodyController = TextEditingController();
-  final userIdController = TextEditingController();
+  // final titleController = TextEditingController();
+  // final bodyController = TextEditingController();
+  // final userIdController = TextEditingController();
 
   final counter = ValueNotifier(0);
-
 
   @override
   void dispose() {
     super.dispose();
     passwordController.dispose();
     emailController.dispose();
-    titleController.dispose();
-    userIdController.dispose();
+    // titleController.dispose();
+    // userIdController.dispose();
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +73,11 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20),
             // Text(emailController.text),
             TextField(
-              controller: titleController,
-              // onChanged: (value) {
-              //   setState(() {});
-              // },
+              // controller: titleController,
+
+              onChanged: (value) {
+                userProvider.setTitle = value;
+              },
               decoration: const InputDecoration(
                 hintText: 'Title',
                 border: OutlineInputBorder(),
@@ -89,8 +87,10 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 20,
             ),
             TextField(
-              controller: bodyController,
-              // onChanged: (value) => provider.setPassword = value,
+              // controller: bodyController,
+              onChanged: (value) {
+                userProvider.setbody = value;
+              },
               decoration: const InputDecoration(
                 hintText: 'Body',
                 border: OutlineInputBorder(),
@@ -98,10 +98,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 10),
 
-            TextField(
-              controller: userIdController,
+           const TextField(
+              // controller: userIdController,
               // onChanged: (value) => provider.setPassword = value,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 hintText: 'UserId',
                 border: OutlineInputBorder(),
               ),
@@ -110,10 +110,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
               onPressed: () {
                 userProvider.createPost(
-                  title: titleController.text,
-                  body: bodyController.text,
-                  userId: userIdController.text,
-                );
+                    //title:titleController.text,
+                    // body: bodyController.text,
+                    // userId: userIdController.text,
+                    );
               },
               child: const Text('Create new post'),
             )
