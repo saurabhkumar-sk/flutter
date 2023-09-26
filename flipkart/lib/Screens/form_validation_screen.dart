@@ -44,12 +44,6 @@ class _FormScreenState extends State<FormScreen> {
               customError: priceError,
               onchange: (value) {
                 final val = int.tryParse(value);
-                // if (val == null) {
-                //   priceError = 'Entered price is invalid';
-                // } else {
-                //   priceError = null;
-                // }
-
                 priceError =
                     val == null ? "Entered price is invalid (number)" : null;
                 setState(() {});
