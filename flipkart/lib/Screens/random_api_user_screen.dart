@@ -25,7 +25,7 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
     super.initState();
   }
 
-  void getUser() {
+  Future<void> getUser() async {
     setState(() {
       isLoading = true;
     });
@@ -41,173 +41,193 @@ class _RandomUserScreenState extends State<RandomUserScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-          title: const Center(
-        child: Text(
-          'Api Users',
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+            title: const Center(
+          child: Text(
+            'Api Users',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
-        ),
-      )),
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : user == null
-              ? const Text(
-                  'Something went wrong',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                )
-              : Column(
-                  children: [
-                    const SizedBox(height: 30),
-                    Stack(
-                      children: [
-                        Center(
-                          child: CircleAvatar(
-                            radius: 100,
-                            backgroundImage: NetworkImage(user!.images.large),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 182),
-                            child: GestureDetector(
-                              onTap: () {
-                                getUser();
-                              },
-                              child: Container(
-                                height: 35,
-                                width: 60,
-                                color: const Color.fromARGB(187, 0, 0, 0),
-                                child: const Center(
-                                  child: Text(
-                                    'New',
-                                    style: TextStyle(color: Colors.white),
+        )),
+        body: isLoading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : user == null
+                ? const Text(
+                    'Something went wrong',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  )
+                : RefreshIndicator(
+                    // displacement: MediaQuery.of(context).size.height / 2,
+                    // edgeOffset: 30,
+                    color: Colors.cyan,
+                    onRefresh: () {
+                      return getUser();
+                      // return Future.delayed(const Duration(seconds: 2)).then(
+                      //   (value) => getUser(),
+                      // );
+                    },
+                    child: ListView.builder(
+                      itemCount: 1,
+                      itemBuilder: (context, index) => Column(
+                        children: [
+                          const SizedBox(height: 30),
+                          Stack(
+                            children: [
+                              Center(
+                                child: CircleAvatar(
+                                  radius: 100,
+                                  backgroundImage:
+                                      NetworkImage(user!.images.large),
+                                ),
+                              ),
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 182),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      getUser();
+                                    },
+                                    child: Container(
+                                      height: 35,
+                                      width: 60,
+                                      color: const Color.fromARGB(187, 0, 0, 0),
+                                      child: const Center(
+                                        child: Text(
+                                          'New',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                            child: Text(
+                              changeTitle,
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Center(
-                      child: Text(
-                        changeTitle,
-                        style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Center(
+                            child: Text(
+                              changeValue,
+                              style: const TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: IconButton(
+                                  color: Colors.grey,
+                                  highlightColor: Colors.green,
+                                  iconSize: 35,
+                                  onPressed: () {
+                                    changeTitle = 'Hi, My name is';
+
+                                    changeValue =
+                                        '${user!.name.title}  ${user!.name.first}  ${user!.name.title}';
+                                    setState(() {});
+                                  },
+                                  icon:
+                                      const Icon(Icons.emoji_emotions_outlined),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: IconButton(
+                                  color: Colors.grey,
+                                  highlightColor: Colors.green,
+                                  iconSize: 35,
+                                  onPressed: () {
+                                    changeTitle = 'My birthday is';
+                                    changeValue = user!.dateOfBirth.date;
+                                    setState(() {});
+                                  },
+                                  icon: const Icon(Icons.calendar_today),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: IconButton(
+                                  color: Colors.grey,
+                                  highlightColor: Colors.green,
+                                  iconSize: 35,
+                                  onPressed: () {
+                                    changeTitle = 'My Address is';
+
+                                    changeValue =
+                                        '${user!.address.street.name}  ${user!.address.city}  ${user!.address.state}  ${user!.address.country}';
+                                    setState(() {});
+                                  },
+                                  icon: const Icon(Icons.location_on_outlined),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: IconButton(
+                                  color: Colors.grey,
+                                  highlightColor: Colors.green,
+                                  iconSize: 35,
+                                  onPressed: () {
+                                    changeTitle = 'My Phone number is';
+                                    changeValue = user!.phone;
+                                    setState(() {});
+                                  },
+                                  icon: const Icon(Icons.call),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: IconButton(
+                                  color: Colors.grey,
+                                  highlightColor: Colors.green,
+                                  iconSize: 35,
+                                  onPressed: () {
+                                    changeTitle = 'My Id is';
+                                    changeValue = user!.id.name;
+                                    setState(() {});
+                                  },
+                                  icon: const Icon(Icons.credit_card_outlined),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Center(
-                      child: Text(
-                        changeValue,
-                        style: const TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: IconButton(
-                            color: Colors.grey,
-                            highlightColor: Colors.green,
-                            iconSize: 35,
-                            onPressed: () {
-                              changeTitle = 'Hi, My name is';
-
-                              changeValue =
-                                  '${user!.name.title}  ${user!.name.first}  ${user!.name.title}';
-                              setState(() {});
-                            },
-                            icon: const Icon(Icons.emoji_emotions_outlined),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: IconButton(
-                            color: Colors.grey,
-                            highlightColor: Colors.green,
-                            iconSize: 35,
-                            onPressed: () {
-                              changeTitle = 'My birthday is';
-                              changeValue = user!.dateOfBirth.date;
-                              setState(() {});
-                            },
-                            icon: const Icon(Icons.calendar_today),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: IconButton(
-                            color: Colors.grey,
-                            highlightColor: Colors.green,
-                            iconSize: 35,
-                            onPressed: () {
-                              changeTitle = 'My Address is';
-
-                              changeValue =
-                                  '${user!.address.street.name}  ${user!.address.city}  ${user!.address.state}  ${user!.address.country}';
-                              setState(() {});
-                            },
-                            icon: const Icon(Icons.location_on_outlined),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: IconButton(
-                            color: Colors.grey,
-                            highlightColor: Colors.green,
-                            iconSize: 35,
-                            onPressed: () {
-                              changeTitle = 'My Phone number is';
-                              changeValue = user!.phone;
-                              setState(() {});
-                            },
-                            icon: const Icon(Icons.call),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: IconButton(
-                            color: Colors.grey,
-                            highlightColor: Colors.green,
-                            iconSize: 35,
-                            onPressed: () {
-                              changeTitle = 'My Id is';
-                              changeValue = user!.id.name;
-                              setState(() {});
-                            },
-                            icon: const Icon(Icons.credit_card_outlined),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                  ),
+      ),
     );
   }
 }
