@@ -1,6 +1,5 @@
 //Drawer list (images links)
 
-
 List<Map<String, dynamic>> myList = [
   {
     'src':
@@ -231,81 +230,89 @@ List<String> newgroupSubtitle = [
 //       incart: false),
 // );
 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
 // import 'package:flutter/material.dart';
 
-// List<Map<String, dynamic>> myImages = [
-//   // 'https://rukminim2.flixcart.com/fk-p-flap/1100/500/image/97f24748652e61ae.png?q=20',
-//   // 'https://picsum.photos/id/237/200/300',
-//   // 'https://picsum.photos/seed/picsum/200/300',
-//   // 'https://picsum.photos/200/300?grayscale',
+List<Map<String, dynamic>> myImages = [
+  // 'https://rukminim2.flixcart.com/fk-p-flap/1100/500/image/97f24748652e61ae.png?q=20',
+  // 'https://picsum.photos/id/237/200/300',
+  // 'https://picsum.photos/seed/picsum/200/300',
+  // 'https://picsum.photos/200/300?grayscale',
 
-//   {'name': 'https://picsum.photos/200/300?grayscale', 'age': 'casda'},
-//   // {'name': 'Shreyansh', 'age': '23'},
-//   // {'name': 'Saorabh', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-// ];
-
-// class ListScreen extends StatelessWidget {
-//   const ListScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text("Lists")),
-//       body: SingleChildScrollView(
-//         scrollDirection: Axis.horizontal,
-//         physics: AlwaysScrollableScrollPhysics(),
-//         child: Column(
-//           children: List.generate(
-//             myImages.length,
-//             (index) => Padding(
-//               padding: const EdgeInsets.all(8.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 children: [
-//                   // Image.network(myImages[index]),
-//                   Image.network(
-//                     myImages[index]['name'],
-//                   ),
-//                   Text(myImages[index]['age'].toString()),
-//                   // Text(myImages[index]['age'].toString()),
-//                   // Text(myImages[index][index].toString()),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  // {'name': 'https://picsum.photos/200/300?grayscale', 'age': 'casda'},
+  {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+];
