@@ -1,5 +1,7 @@
 //Drawer list (images links)
 
+import 'package:flutter/material.dart';
+
 List<Map<String, dynamic>> myList = [
   {
     'src':
@@ -315,4 +317,52 @@ List<Map<String, dynamic>> myImages = [
   {'name': 'Ajay', 'age': 22},
   {'name': 'Ajay', 'age': 22},
   {'name': 'Ajay', 'age': 22},
+];
+
+//GridView screen data
+
+List<Color> mycolors = [
+  // Colors.black,
+  Colors.red,
+  Colors.green,
+  Colors.brown,
+  Colors.black,
+  Colors.red,
+  Colors.green,
+  Colors.brown,
+  Colors.black,
+  Colors.red,
+  Colors.green,
+  Colors.brown,
+];
+List<String> myimages = [
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/1600x900/?beach',
+  "https://picsum.photos/200/300?a",
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/random',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/random',
+  "https://picsum.photos/200/300?a",
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/random',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
 ];
