@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class CustomPaintScreen extends StatelessWidget {
@@ -20,8 +21,8 @@ class CustomPaintScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 200,
-          width: 200,
+          height: 300,
+          width: 300,
           color: Colors.white,
           child: CustomPaint(
             painter: MyPainter(),
@@ -82,18 +83,36 @@ class MyPainter extends CustomPainter {
     // canvas.drawRect(rect4, paint);
 
     ///➡️➡️Draw circle
-    final center1 = Offset(size.width * 0.4, size.height * 0.4);
-    final center2 = Offset(size.width * 0.6, size.height * 0.4);
-    final center3 = Offset(size.width * 0.5, size.height * 0.6);
+    // final center1 = Offset(size.width * 0.4, size.height * 0.4);
+    // final center2 = Offset(size.width * 0.6, size.height * 0.4);
+    // final center3 = Offset(size.width * 0.5, size.height * 0.6);
 
     //center circle
     // final center1 = Offset(size.width * 0.3, size.height / 2);
     // final center2 = Offset(size.width * 0.6, size.height / 2);
     // final center3 = Offset(size.width * 0.45, size.height * 0.5);
 
-    canvas.drawCircle(center1, size.width * .2, paint);
-    canvas.drawCircle(center2, size.width * .2, paint);
-    canvas.drawCircle(center3, size.width * .2, paint);
+    // canvas.drawCircle(center1, size.width * .2, paint);
+    // canvas.drawCircle(center2, size.width * .2, paint);
+    // canvas.drawCircle(center3, size.width * .2, paint);
+
+    //Arc
+    // final offset1 = Offset(size.width * 0.1, size.height * 0.1);
+    // final offset2 = Offset(size.width * 0.9, size.height * 0.9);
+
+    // final rect = Rect.fromPoints(offset1, offset2);
+
+    // canvas.drawArc(rect, pi / 2, pi / 3, true, paint);
+
+    //➡️➡️Draw Path
+    final path = Path();
+    path.moveTo(size.width * 0.1, size.height * 0.2);
+    path.lineTo(size.width * 0.9, size.height * 0.2);
+    path.lineTo(size.width * 0.9, size.height * 0.4);
+    // path.lineTo(size.width * 0.1, size.height * 0.4);
+    path.close();
+
+    canvas.drawPath(path, paint);
   }
 
   @override
