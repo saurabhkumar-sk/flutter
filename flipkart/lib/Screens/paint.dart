@@ -37,7 +37,7 @@ class MyPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = Colors.blue
-      ..strokeWidth = 6
+      ..strokeWidth = 3
       ..style = PaintingStyle.stroke;
 //Line Draw
     // final paint1 = Paint()
@@ -52,35 +52,48 @@ class MyPainter extends CustomPainter {
     // );
 
     //Rectangle
-    final rect = Rect.fromPoints(
-      Offset(size.width * 0.1, size.height * 0.1),
-      Offset(size.width * 0.9, size.height * 0.9),
-    );
-    //
-    final rect1 = Rect.fromCenter(
-      center: Offset(
-        size.width / 2,
-        size.height / 2,
-      ),
-      width: 100,
-      height: 100,
-    );
-//
-    final rect2 = Rect.fromCircle(
-      center: Offset(
-        size.width / 2,
-        size.height / 2,
-      ),
-      radius: 50,
-    );
-//
-    const rect3 = Rect.fromLTRB(50, 50, 100, 100);
-//
+//     final rect = Rect.fromPoints(
+//       Offset(size.width * 0.1, size.height * 0.1),
+//       Offset(size.width * 0.9, size.height * 0.9),
+//     );
+//     //
+//     final rect1 = Rect.fromCenter(
+//       center: Offset(
+//         size.width / 2,
+//         size.height / 2,
+//       ),
+//       width: 100,
+//       height: 100,
+//     );
+// //
+//     final rect2 = Rect.fromCircle(
+//       center: Offset(
+//         size.width / 2,
+//         size.height / 2,
+//       ),
+//       radius: 50,
+//     );
+// //
+//     const rect3 = Rect.fromLTRB(50, 50, 100, 100);
+// //
 
-    const rect4 = Rect.fromLTWH(50, 50, 50, 50);
+//     const rect4 = Rect.fromLTWH(50, 50, 50, 50);
 
-    
-    canvas.drawRect(rect4, paint);
+    // canvas.drawRect(rect4, paint);
+
+    ///➡️➡️Draw circle
+    final center1 = Offset(size.width * 0.4, size.height * 0.4);
+    final center2 = Offset(size.width * 0.6, size.height * 0.4);
+    final center3 = Offset(size.width * 0.5, size.height * 0.6);
+
+    //center circle
+    // final center1 = Offset(size.width * 0.3, size.height / 2);
+    // final center2 = Offset(size.width * 0.6, size.height / 2);
+    // final center3 = Offset(size.width * 0.45, size.height * 0.5);
+
+    canvas.drawCircle(center1, size.width * .2, paint);
+    canvas.drawCircle(center2, size.width * .2, paint);
+    canvas.drawCircle(center3, size.width * .2, paint);
   }
 
   @override
