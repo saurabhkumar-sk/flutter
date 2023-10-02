@@ -45,7 +45,7 @@ class _GridViewScreenState extends State<GridViewScreen> {
     await Future.delayed(const Duration(seconds: 2));
     // final list = user.getRange(offset, limit).toList();
     await Future.delayed(const Duration(seconds: 2));
-    return  await Future.delayed(const Duration(seconds: 2));
+    return await Future.delayed(const Duration(seconds: 2));
   }
 
   @override
@@ -65,7 +65,7 @@ class _GridViewScreenState extends State<GridViewScreen> {
           ),
         ),
       ),
-      body: loader
+      body: loader == false
           ? const Center(child: CircularProgressIndicator())
           : NotificationListener(
               onNotification: (notification) =>
