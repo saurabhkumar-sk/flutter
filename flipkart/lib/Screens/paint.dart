@@ -37,18 +37,50 @@ class MyPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = Colors.blue
-      ..strokeWidth = 3;
-
+      ..strokeWidth = 6
+      ..style = PaintingStyle.stroke;
+//Line Draw
     // final paint1 = Paint()
     //   ..color = Colors.amber
     //   ..strokeWidth = 3;
 
-    canvas.drawLine(
-      Offset(size.width * 0.1, size.height / 2),
-      Offset(size.width * 0.9, size.height / 2),
-      paint,
-      // paint1,
+    // canvas.drawLine(
+    //   Offset(size.width * 0.1, size.height / 2),
+    //   Offset(size.width * 0.9, size.height / 2),
+    //   paint,
+    //   // paint1,
+    // );
+
+    //Rectangle
+    final rect = Rect.fromPoints(
+      Offset(size.width * 0.1, size.height * 0.1),
+      Offset(size.width * 0.9, size.height * 0.9),
     );
+    //
+    final rect1 = Rect.fromCenter(
+      center: Offset(
+        size.width / 2,
+        size.height / 2,
+      ),
+      width: 100,
+      height: 100,
+    );
+//
+    final rect2 = Rect.fromCircle(
+      center: Offset(
+        size.width / 2,
+        size.height / 2,
+      ),
+      radius: 50,
+    );
+//
+    const rect3 = Rect.fromLTRB(50, 50, 100, 100);
+//
+
+    const rect4 = Rect.fromLTWH(50, 50, 50, 50);
+
+    
+    canvas.drawRect(rect4, paint);
   }
 
   @override
