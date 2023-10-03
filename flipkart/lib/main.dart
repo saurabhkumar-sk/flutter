@@ -5,6 +5,9 @@ import 'package:my_first_app/providers/consumer_cart_provider.dart';
 import 'package:my_first_app/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
+
+final messangerkey = GlobalKey<ScaffoldMessengerState>();
+
 void main() {
   runApp(const MyApp());
 }
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
       child: MaterialApp(
+        scaffoldMessengerKey: messangerkey,
         debugShowCheckedModeBanner: false,
         title: "Clone",
         theme: ThemeData(
