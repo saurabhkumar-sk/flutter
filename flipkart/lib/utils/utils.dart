@@ -18,7 +18,6 @@ class Utils {
     messangerkey.currentState?.showSnackBar(
       SnackBar(
         showCloseIcon: true,
-        
         closeIconColor: Colors.amber,
         behavior: SnackBarBehavior.floating,
         action: SnackBarAction(
