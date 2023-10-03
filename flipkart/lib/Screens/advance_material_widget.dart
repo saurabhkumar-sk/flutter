@@ -23,6 +23,9 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
   //Switch
   bool light = true;
 
+  //picked date
+  String? date;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +35,40 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //Picked Time
+          GestureDetector(
+            onTap: () async {
+              final pickedDate = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime.now().subtract(
+                  const Duration(days: 1500),
+                ),
+                lastDate: DateTime.now().add(
+                  const Duration(days: 1500),
+                ),
+              );
+
+              if (pickedDate != null) {
+                // final finalPickedDate = '${pickedDate.day}/'
+                //     '${pickedDate.month}/'
+                //     '${pickedDate.year.toString()}';
+                setState(() {
+                  // date = finalPickedDate;
+
+                  date = pickedDate.toDate();
+                });
+              }
+            },
+            child: Text(
+              date ?? 'Picked date',
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+
+          //Badge
           const Center(
             child: Badge(
               label: Text('5'),
@@ -41,6 +78,8 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
               ),
             ),
           ),
+
+          //SnackBar
           IconButton(
             onPressed: () {
               Utils.showSnack('Product added');
@@ -175,5 +214,12 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
         ],
       ),
     );
+  }
+}
+
+//date picker extention
+extension DatePickerHelper on DateTime {
+  String toDate() {
+    return '$day/$month/$year';
   }
 }
