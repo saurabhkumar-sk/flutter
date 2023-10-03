@@ -11,10 +11,17 @@ class AdvanceMaterialWidget extends StatefulWidget {
 }
 
 class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
+  //RadioButton
   // Gender selectedgender = Gender.male;
   //or
   int selectedgender = 1;
   List gender = ['male', 'female', 'other'];
+
+//Slider
+  double currentSliderValue = 10;
+
+  //Switch
+  bool light = true;
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +130,48 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
               },
             ),
           ),
+          // ...List.generate(
+          //   gender.length,
+          //   (index) => Radio(
+          //     value: index,
+          //     groupValue: selectedgender,
+          //     onChanged: (value) {
+          //       setState(
+          //         () {
+          //           selectedgender = value!;
+          //         },
+          //       );
+          //     },
+          //   ),
+          // ),
+
+          Slider(
+            value: currentSliderValue,
+            max: 100,
+            divisions: 10,
+            secondaryTrackValue: 50,
+            // activeColor: Colors.red,
+            // min: 30,
+            // thumbColor: Colors.amber,
+
+            label: currentSliderValue.round().toString(),
+            onChanged: (value) {
+              setState(
+                () {
+                  currentSliderValue = value;
+                },
+              );
+            },
+          ),
+
+          //Switch
+          Switch(
+              value: light,
+              onChanged: (value) {
+                setState(() {
+                  light = value;
+                });
+              })
         ],
       ),
     );

@@ -5,7 +5,6 @@ import 'package:my_first_app/providers/consumer_cart_provider.dart';
 import 'package:my_first_app/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
-
 final messangerkey = GlobalKey<ScaffoldMessengerState>();
 
 void main() {
