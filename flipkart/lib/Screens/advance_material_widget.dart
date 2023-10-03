@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/utils/utils.dart';
 
+enum Gender { male, female, other }
+
 class AdvanceMaterialWidget extends StatefulWidget {
   const AdvanceMaterialWidget({super.key});
 
@@ -9,6 +11,11 @@ class AdvanceMaterialWidget extends StatefulWidget {
 }
 
 class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
+  // Gender selectedgender = Gender.male;
+  //or
+  int selectedgender = 1;
+  List gender = ['male', 'female', 'other'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +57,6 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
             ),
           ),
 
-
           //Chip
           const Chip(
             // backgroundColor: Colors.amber,
@@ -62,7 +68,6 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
             label: Text('chip'),
           ),
 
-
           //ChoiceChip
           const ChoiceChip(
             pressElevation: 15,
@@ -70,7 +75,54 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
             selected: false,
           ),
 
-          //
+          //Radio Button
+
+          // RadioListTile(
+          //     title: const Text('Male'),
+          //     value: 1,
+          //     groupValue: selectedgender,
+          //     onChanged: (value) {
+          //       setState(() {
+          //         selectedgender = value!;
+          //       });
+          //     }),
+          // RadioListTile(
+          //     title: const Text('Female'),
+          //     value: 2,
+          //     groupValue: selectedgender,
+          //     onChanged: (value) {
+          //       setState(() {
+          //         selectedgender = value!;
+          //       });
+          //     }),
+          // RadioListTile(
+          //   title: const Text('Other'),
+          //   value: 3,
+          //   groupValue: selectedgender,
+          //   onChanged: (value) {
+          //     setState(
+          //       () {
+          //         selectedgender = value!;
+          //       },
+          //     );
+          //   },
+          // ),
+          //or
+          ...List.generate(
+            gender.length,
+            (index) => RadioListTile(
+              title: Text(gender[index]),
+              value: index,
+              groupValue: selectedgender,
+              onChanged: (value) {
+                setState(
+                  () {
+                    selectedgender = value!;
+                  },
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
