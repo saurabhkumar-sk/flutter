@@ -26,6 +26,9 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
   //picked date
   String? date;
 
+  //Picked date
+  String? time;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +66,25 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
             child: Text(
               date ?? 'Picked date',
             ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+
+          //Picked time
+          GestureDetector(
+            onTap: () async {
+              final myIime = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now(),
+              );
+              if (myIime != null) {
+                setState(() {
+                  time = myIime.toStandard();
+                });
+              }
+            },
+            child: Text(time ?? 'picked time'),
           ),
           const SizedBox(
             height: 20,
@@ -221,5 +243,16 @@ class _AdvanceMaterialWidgetState extends State<AdvanceMaterialWidget> {
 extension DatePickerHelper on DateTime {
   String toDate() {
     return '$day/$month/$year';
+  }
+}
+
+extension TimePickerHelper on TimeOfDay {
+  String toTime() {
+    return '$hour:$minute';
+  }
+
+  String toStandard({bool time = true}) {
+    int hour0 = hour > 12 ? hour - 12 : hour;
+    return '${time ? '${hour0 < 12 ? hour0 : hour} :' '$minute' : hour0}';
   }
 }
