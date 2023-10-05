@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_app/Screens/advance_material_widget.dart';
+import 'package:my_first_app/Screens/local_storage.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/consumer_cart_provider.dart';
 import 'package:my_first_app/providers/user_provider.dart';
@@ -73,7 +74,8 @@ class MyApp extends StatelessWidget {
         // home: const PageViewScreen(),
         // home: const CustomPaintScreen(),
         // home: const ClipperScreen(),
-        home: const AdvanceMaterialWidget(),
+        // home: const AdvanceMaterialWidget(),
+        home: const LocalStorageScreen(),
       ),
     );
   }
