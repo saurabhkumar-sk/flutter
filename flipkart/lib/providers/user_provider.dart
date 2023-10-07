@@ -2,8 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:my_first_app/api_services/user_service.dart';
-// import 'package:my_first_app/api_services/random_user_services.dart';
 import 'package:my_first_app/models/api_users.dart';
+import 'package:my_first_app/todo_application/db_helper.dart';
+import 'package:my_first_app/todo_application/todo_model.dart';
 
 class UserProvider extends ChangeNotifier {
   final service = UserService();
@@ -43,5 +44,16 @@ class UserProvider extends ChangeNotifier {
     } catch (e, s) {
       log(e.toString(), name: 'error catch createPost', stackTrace: s);
     }
+  }
+
+  //ToDo Provider
+
+  List<TodoModel> todos = [];
+
+  Future<void> getTodos() async {
+    final response = await DBHelper.instance.getTodos();
+
+    todos = response;
+    notifyListeners();
   }
 }
