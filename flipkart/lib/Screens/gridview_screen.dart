@@ -1,58 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/models/users_image.dart';
+import 'package:my_first_app/utils/utils.dart';
 
-List<Color> mycolors = [
-  // Colors.black,
-  Colors.red,
-  Colors.green,
-  Colors.brown,
-  Colors.black,
-  Colors.red,
-  Colors.green,
-  Colors.brown,
-  Colors.black,
-  Colors.red,
-  Colors.green,
-  Colors.brown,
-];
-List<String> myimages = [
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/featured/300x202',
-  'https://source.unsplash.com/1600x900/?beach',
-  "https://picsum.photos/200/300?a",
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://picsum.photos/200/300?grayscale',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/random?blue',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/featured/300x202',
-  'https://source.unsplash.com/random',
-  'https://picsum.photos/200/300?grayscale',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/random?blue',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://picsum.photos/200/300?grayscale',
-  'https://source.unsplash.com/featured/300x202',
-  'https://source.unsplash.com/random',
-  "https://picsum.photos/200/300?a",
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/random?blue',
-  'https://picsum.photos/200/300?grayscale',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/featured/300x202',
-  'https://source.unsplash.com/random',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://picsum.photos/200/300?grayscale',
-  'https://source.unsplash.com/random/900×700/?fruit',
-  'https://source.unsplash.com/random?blue',
-];
-
-class GridViewScreen extends StatelessWidget {
+class GridViewScreen extends StatefulWidget {
   const GridViewScreen({super.key});
+
+  @override
+  State<GridViewScreen> createState() => _GridViewScreenState();
+}
+
+class _GridViewScreenState extends State<GridViewScreen> {
+  User? user;
+
+  List<Map<String, dynamic>> myList = [];
+  bool loader = false;
+
+  int myLimit = 20;
+  int myOffset = 0;
+  bool pageinate = true;
+
+  Future<void> getList({int offset = 0, int limit = 20}) async {
+    if (!pageinate) {
+      return;
+    }
+    setState(() {
+      loader = true;
+    });
+    await getData(offset: myOffset, limit: myLimit).then((value) {
+      myList += value;
+      myOffset = myOffset + 20;
+      myLimit = myLimit + 20;
+
+      if (value.length < 20) pageinate = false;
+
+      loader = false;
+      setState(() {});
+    });
+  }
+
+  Future<List<Map<String, dynamic>>> getData({
+    int limit = 20,
+    int offset = 0,
+  }) async {
+    await Future.delayed(const Duration(seconds: 2));
+    // final list = user.getRange(offset, limit).toList();
+    await Future.delayed(const Duration(seconds: 2));
+    return await Future.delayed(const Duration(seconds: 2));
+  }
+
+  @override
+  void initState() {
+    getList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text(
           'GridViewBuilder',
@@ -61,24 +65,64 @@ class GridViewScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: GridView.builder(
-        physics: const BouncingScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 5,
-          mainAxisSpacing: 5,
-        ),
-        itemCount: myimages.length,
-        itemBuilder: (context, index) {
-          return Image.network(
-            myimages[index],
-            fit: BoxFit.cover,
-          );
-        },
-      ),
+      body: loader == false
+          ? const Center(child: CircularProgressIndicator())
+          : NotificationListener(
+              onNotification: (notification) =>
+                  Utils.scrollNotifier(notification, () {
+                getList(offset: myOffset);
+              }),
+              child: GridView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                  ),
+                  itemCount: myList.length + (loader ? 1 : 0),
+                  itemBuilder: (context, index) {
+                    return Image.network(
+                      user!.downloadUrl,
+                    );
+                  }),
+            ),
     );
   }
 }
+
+// class GridViewScreen extends StatelessWidget {
+//   const GridViewScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       // backgroundColor: Colors.black,
+//       appBar: AppBar(
+//         title: const Text(
+//           'GridViewBuilder',
+//           style: TextStyle(
+//             color: Colors.white,
+//           ),
+//         ),
+//       ),
+//       body: GridView.builder(
+//         physics: const BouncingScrollPhysics(),
+//         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//           crossAxisCount: 3,
+//           crossAxisSpacing: 5,
+//           mainAxisSpacing: 5,
+//         ),
+//         // itemCount: myimages.length,
+//         itemBuilder: (context, index) {
+//           return Image.network(
+//             myimages[index],
+//             fit: BoxFit.cover,
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
 
 //******************GridView*****************************************/
 

@@ -1,5 +1,7 @@
 //Drawer list (images links)
 
+import 'package:flutter/material.dart';
+
 List<Map<String, dynamic>> myList = [
   {
     'src':
@@ -217,82 +219,150 @@ List<String> newgroupSubtitle = [
   'At work',
   'Battery about to die',
   'Can\'t talk, WhatsApp only',
-  'In a meeting', 
-  
+  'In a meeting',
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
+// List<ProductModel> products = List.generate(
+//   20,
+//   (index) => ProductModel(
+//       name: 'Product ${index + 1}',
+//       price: 101 + index,
+//       image: 'https://picsum.photos/id/${index + 5}/200/300',
+//       description: 'This is new product for your ease.',
+//       incart: false),
+// );
 
 // import 'package:flutter/material.dart';
 
-// List<Map<String, dynamic>> myImages = [
-//   // 'https://rukminim2.flixcart.com/fk-p-flap/1100/500/image/97f24748652e61ae.png?q=20',
-//   // 'https://picsum.photos/id/237/200/300',
-//   // 'https://picsum.photos/seed/picsum/200/300',
-//   // 'https://picsum.photos/200/300?grayscale',
+List<Map<String, dynamic>> myImages = [
+  // 'https://rukminim2.flixcart.com/fk-p-flap/1100/500/image/97f24748652e61ae.png?q=20',
+  // 'https://picsum.photos/id/237/200/300',
+  // 'https://picsum.photos/seed/picsum/200/300',
+  // 'https://picsum.photos/200/300?grayscale',
 
-//   {'name': 'https://picsum.photos/200/300?grayscale', 'age': 'casda'},
-//   // {'name': 'Shreyansh', 'age': '23'},
-//   // {'name': 'Saorabh', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-//   // {'name': 'Ajay', 'age': 22},
-// ];
+  // {'name': 'https://picsum.photos/200/300?grayscale', 'age': 'casda'},
+  {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22}, {'name': 'Saurabh', 'age': 22},
+  {'name': 'Samir', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Amar', 'age': 22},
+  {'name': 'Jaky', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Krisnna', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+  {'name': 'Ajay', 'age': 22},
+];
 
-// class ListScreen extends StatelessWidget {
-//   const ListScreen({super.key});
+//GridView screen data
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text("Lists")),
-//       body: SingleChildScrollView(
-//         scrollDirection: Axis.horizontal,
-//         physics: AlwaysScrollableScrollPhysics(),
-//         child: Column(
-//           children: List.generate(
-//             myImages.length,
-//             (index) => Padding(
-//               padding: const EdgeInsets.all(8.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 children: [
-//                   // Image.network(myImages[index]),
-//                   Image.network(
-//                     myImages[index]['name'],
-//                   ),
-//                   Text(myImages[index]['age'].toString()),
-//                   // Text(myImages[index]['age'].toString()),
-//                   // Text(myImages[index][index].toString()),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+List<Color> mycolors = [
+  // Colors.black,
+  Colors.red,
+  Colors.green,
+  Colors.brown,
+  Colors.black,
+  Colors.red,
+  Colors.green,
+  Colors.brown,
+  Colors.black,
+  Colors.red,
+  Colors.green,
+  Colors.brown,
+];
+List<String> myimages = [
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/1600x900/?beach',
+  "https://picsum.photos/200/300?a",
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/random',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/random',
+  "https://picsum.photos/200/300?a",
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/featured/300x202',
+  'https://source.unsplash.com/random',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://picsum.photos/200/300?grayscale',
+  'https://source.unsplash.com/random/900×700/?fruit',
+  'https://source.unsplash.com/random?blue',
+];

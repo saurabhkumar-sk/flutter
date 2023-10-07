@@ -10,7 +10,7 @@ class FbLandingScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            pinned: true,
+            // pinned: true,
             stretch: true,
             backgroundColor: Colors.amber,
             title: const Text(

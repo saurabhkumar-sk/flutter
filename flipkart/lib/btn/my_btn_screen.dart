@@ -30,7 +30,7 @@ class MyButtons extends StatelessWidget {
                 Color.fromRGBO(39, 38, 38, 1),
                 Color.fromRGBO(29, 29, 29, 1),
               ],
-              fontColor: Colors.white,
+              // fontColor: Colors.white,
             ),
           ),
           // Row(children: [Text("data")]),
@@ -64,11 +64,11 @@ class CircleButton extends StatelessWidget {
     // return coz
 
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 30),
       child: Container(
         height: 84,
         width: 84,
-        padding: const EdgeInsets.symmetric(vertical: 50),
+        padding: const EdgeInsets.symmetric(vertical: 29),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
               begin: Alignment.topCenter,
@@ -78,25 +78,18 @@ class CircleButton extends StatelessWidget {
                 Color.fromRGBO(94, 100, 255, 0.20),
               ]),
           border: Border.all(
-              width: 2, color: const Color.fromARGB(255, 27, 48, 65)),
-          borderRadius: const BorderRadius.all(Radius.circular(50)),
-          boxShadow: const [
-            BoxShadow(
-              // color: Colors.black.withOpacity(0.2),
-              spreadRadius: 10,
-              blurRadius: 10,
-              // offset: Offset(0, 3),
-            ),
-          ],
+            width: 2,
+            color: const Color.fromARGB(255, 27, 48, 65),
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(50),
+          ),
         ),
-        // child: Center(
-        //   // Adding the image
-        //   child: Image.asset(
-        //     "flipkart/assets/images/Vector  color.png",
-        //     height: 40, // Adjust the height as needed
-        //     width: 40, // Adjust the width as needed
-        //   ),
-        // ),
+        child: const Icon(
+          Icons.add_circle_outline_outlined,
+          color: Color.fromRGBO(91, 255, 226, 0.20),
+          // Color.fromRGBO(94, 100, 255, 0.20),
+        ),
       ),
     );
   }
