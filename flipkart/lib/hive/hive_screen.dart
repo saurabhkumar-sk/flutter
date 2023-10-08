@@ -163,7 +163,7 @@ class _AddTodoState extends State<AddTodo> {
                 if (widget.no == null) {
                   HiveDb.instance.createTodo(
                     Todo(
-                      id: widget.length ?? 1,
+                      // id: widget.length ?? 1,
                       title: titleController.text,
                       body: bodyController.text,
                     ),
@@ -172,7 +172,7 @@ class _AddTodoState extends State<AddTodo> {
                   HiveDb.instance.updateTodo(
                     widget.no!,
                     Todo(
-                      id: widget.no!,
+                      // id: widget.no!,
                       title: titleController.text,
                       body: bodyController.text,
                     ),

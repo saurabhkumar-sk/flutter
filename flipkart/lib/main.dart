@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/hive/hive_db.dart';
-import 'package:my_first_app/hive/hive_screen.dart';
+import 'package:my_first_app/Screens/image_picker_storage.dart';
 import 'package:my_first_app/hive/todo.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/consumer_cart_provider.dart';
@@ -9,6 +8,7 @@ import 'package:my_first_app/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 final messangerkey = GlobalKey<ScaffoldMessengerState>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,7 +19,7 @@ void main() async {
   Hive.registerAdapter(TodoAdapter());
 
   // Open the peopleBox
-  await Hive.openBox(boxName);
+  // await Hive.openBox (boxName);
 
   runApp(const MyApp());
 }
@@ -89,7 +89,8 @@ class MyApp extends StatelessWidget {
         // home: const AdvanceMaterialWidget(),
         // home: const LocalStorageScreen(),
         // home: const ToDoScreen(),
-        home: const HiveToDoScreen(),
+        // home: const HiveToDoScreen(),
+        home: const ImagePickerLocalStorageScreen(),
       ),
     );
   }

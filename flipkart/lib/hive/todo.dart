@@ -3,17 +3,17 @@ part 'todo.g.dart';
 
 @HiveType(typeId: 1)
 class Todo {
-  @HiveField(0)
-  final int id;
+  // @HiveField(0)
+  // final int id;
 
-  @HiveField(1)
+  @HiveField(0)
   final String title;
 
-  @HiveField(2)
+  @HiveField(1)
   final String body;
 
   Todo( {
-    required this.id,
+    // required this.id,
     required this.title,
     required this.body,
   });
