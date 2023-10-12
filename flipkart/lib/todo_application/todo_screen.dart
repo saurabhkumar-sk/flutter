@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_first_app/providers/user_provider.dart';
 import 'package:my_first_app/todo_application/add_todo.dart';
@@ -48,6 +51,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    log(FirebaseAuth.instance.currentUser.toString());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -55,6 +59,14 @@ class _ToDoScreenState extends State<ToDoScreen> {
           'TODOs',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+            icon: const Icon(Icons.logout),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

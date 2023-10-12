@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:my_first_app/Screens/signup_screen.dart';
+import 'package:my_first_app/api_services/firebase_api.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -83,12 +82,19 @@ class _FirebaseLoginScreenState extends State<FirebaseLoginScreen> {
             const SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
-                provider.login(emailController.text, passController.text);
-                log(emailController.text, name: 'email');
-                log(passController.text, name: 'pass');
+                FirebaseApi.instance
+                    .login(emailController.text, passController.text);
+
+                // FirebaseApi.instance.getUser();
               },
               child: const Text('Login'),
             ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     FirebaseAuth.instance.userChanges();
+            //   },
+            //   child: const Text('update'),
+            // ),
             const SizedBox(height: 25),
             GestureDetector(
               onTap: () {
