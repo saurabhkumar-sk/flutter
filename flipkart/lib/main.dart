@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/Screens/api_pagination_user_screen.dart';
+import 'package:my_first_app/Screens/firebase_login_screen.dart';
+import 'package:my_first_app/firebase_options.dart';
 import 'package:my_first_app/hive/todo.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/consumer_cart_provider.dart';
@@ -12,6 +14,11 @@ final messangerkey = GlobalKey<ScaffoldMessengerState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  //FireBase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   // Initialize hive
   await Hive.initFlutter();
 
@@ -19,7 +26,7 @@ void main() async {
   Hive.registerAdapter(TodoAdapter());
 
   // Open the peopleBox
-  // await Hive.openBox (boxName);
+  // await Hive.openBox(boxName);
 
   runApp(const MyApp());
 }
@@ -91,7 +98,9 @@ class MyApp extends StatelessWidget {
         // home: const ToDoScreen(),
         // home: const HiveToDoScreen(),
         // home: const ImagePickerLocalStorageScreen(),
-        home: const ApiPaginationUserScreen(),
+        // home: const ApiPaginationUserScreen(),
+        // home: const SharedPreScreen(),
+        home: const FirebaseLoginScreen(),
       ),
     );
   }

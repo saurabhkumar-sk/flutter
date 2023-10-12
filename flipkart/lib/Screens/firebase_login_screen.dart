@@ -1,19 +1,27 @@
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:my_first_app/Screens/firebase_login_screen.dart';
-import 'package:my_first_app/api_services/firebase_api.dart';
-import 'package:my_first_app/todo_application/todo_screen.dart';
+import 'package:my_first_app/Screens/signup_screen.dart';
+import 'package:my_first_app/providers/authantification_provider.dart';
+import 'package:provider/provider.dart';
 
-class SignUpScreenFirebase extends StatefulWidget {
-  const SignUpScreenFirebase({super.key});
+class FirebaseLoginScreen extends StatefulWidget {
+  const FirebaseLoginScreen({super.key});
 
   @override
-  State<SignUpScreenFirebase> createState() => _SignUpScreenFirebaseState();
+  State<FirebaseLoginScreen> createState() => _FirebaseLoginScreenState();
 }
 
-class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
+class _FirebaseLoginScreenState extends State<FirebaseLoginScreen> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
+  late AuthProvider provider;
+
+  @override
+  void initState() {
+    super.initState();
+    provider = Provider.of<AuthProvider>(context, listen: false);
+  }
 
   @override
   void dispose() {
@@ -28,7 +36,7 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'SignUp',
+          'Login',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
@@ -45,6 +53,9 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
                 return null;
               },
               controller: emailController,
+              onChanged: (value) {
+                setState(() {});
+              },
               decoration: const InputDecoration(
                 hintText: 'Enter your Email',
                 border: OutlineInputBorder(),
@@ -53,8 +64,17 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
             const SizedBox(
               height: 20,
             ),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'password is required';
+                }
+                return null;
+              },
               controller: passController,
+              onChanged: (value) {
+                setState(() {});
+              },
               decoration: const InputDecoration(
                 hintText: 'Enter your Password',
                 border: OutlineInputBorder(),
@@ -63,34 +83,24 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
             const SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
-                FirebaseApi.instance
-                    .signUp(emailController.text, passController.text)
-                    .then((value) {
-                  if (value != null) {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ToDoScreen(),
-                      ),
-                      (route) => false,
-                    );
-                  }
-                });
+                provider.login(emailController.text, passController.text);
+                log(emailController.text, name: 'email');
+                log(passController.text, name: 'pass');
               },
-              child: const Text('SignUp'),
+              child: const Text('Login'),
             ),
             const SizedBox(height: 25),
             GestureDetector(
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const FirebaseLoginScreen(),
+                      builder: (context) => const SignUpScreenFirebase(),
                     ),
-                    (route) => false,
-                  );
-                },
-                child: const Text('Already have an account? Login'))
+                    (route) => false);
+              },
+              child: const Text('Don\'t have an account? sign up'),
+            )
           ],
         ),
       ),
