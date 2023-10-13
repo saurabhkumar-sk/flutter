@@ -12,6 +12,15 @@ class SignUpScreenFirebase extends StatefulWidget {
 class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
+  TextEditingController countryController = TextEditingController();
+
+  var phone = '';
+
+  @override
+  void initState() {
+    super.initState();
+    countryController.text = '+91';
+  }
 
   @override
   void dispose() {
@@ -35,28 +44,62 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextFormField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Email is required';
-                }
-                return null;
-              },
-              controller: emailController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your Email',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: passController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your Password',
-                border: OutlineInputBorder(),
-              ),
+            // TextFormField(
+            //   validator: (value) {
+            //     if (value!.isEmpty) {
+            //       return 'Email is required';
+            //     }
+            //     return null;
+            //   },
+            //   controller: emailController,
+            //   decoration: const InputDecoration(
+            //     hintText: 'Enter your Email',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // TextField(
+            //   controller: passController,
+            //   decoration: const InputDecoration(
+            //     hintText: 'Enter your Password',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            const SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  width: 10,
+                ),
+                SizedBox(
+                  width: 40,
+                  child: TextField(
+                    controller: countryController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        // border: OutlineInputBorder(),
+                        ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: TextField(
+                    keyboardType: TextInputType.phone,
+                    decoration: const InputDecoration(
+                      // border: OutlineInputBorder(),
+                      hintText: "Phone",
+                    ),
+                    onChanged: (value) {
+                      phone = value;
+                    },
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 25),
             ElevatedButton(
@@ -85,17 +128,25 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
               child: const Text('Login With Google'),
             ),
             const SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                FirebaseApi.instance.phoneVerify(countryController.text, phone);
+              },
+              child: const Text('Login With Phone'),
+            ),
+            const SizedBox(height: 25),
             GestureDetector(
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const FirebaseLoginScreen(),
-                    ),
-                    (route) => false,
-                  );
-                },
-                child: const Text('Already have an account? Login'))
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FirebaseLoginScreen(),
+                  ),
+                  (route) => false,
+                );
+              },
+              child: const Text('Already have an account? Login'),
+            )
           ],
         ),
       ),
