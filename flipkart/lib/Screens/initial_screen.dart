@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_first_app/Screens/fire_todo_screen.dart';
 import 'package:my_first_app/Screens/firebase_login_screen.dart';
-import 'package:my_first_app/todo_application/todo_screen.dart';
 
 class InitialScreen extends StatelessWidget {
   const InitialScreen({super.key});
@@ -13,7 +13,7 @@ class InitialScreen extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
         return snapshot.data == null
             ? const FirebaseLoginScreen()
-            : const ToDoScreen();
+            : const FireToDoScreen();
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:my_first_app/api_services/firebase_api.dart';
 import 'package:my_first_app/api_services/user_service.dart';
 import 'package:my_first_app/models/api_usermodel_p.dart';
 import 'package:my_first_app/models/api_users.dart';
@@ -58,8 +59,22 @@ class UserProvider extends ChangeNotifier {
     final response = await DBHelper.instance.getTodos(limit, offset);
 
     offset == 0 ? todos = response : todos += response;
-    
+
     todos = response;
+    notifyListeners();
+    return response.length;
+  }
+
+  //Firebasecloud  storage todo list
+  List<TodoModel> fireTodos = [];
+
+  Future<int> getFireTodos({int limit = 10, int offset = 0}) async {
+    final response = await FirebaseApi.instance.getTodos();
+    List<TodoModel> tempData = List.from(response
+        .map((e) => TodoModel.fromJson(e.data() as Map<String, dynamic>)));
+
+    fireTodos = tempData;
+
     notifyListeners();
     return response.length;
   }

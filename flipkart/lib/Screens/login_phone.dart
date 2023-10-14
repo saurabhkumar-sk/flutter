@@ -30,57 +30,60 @@ class _LoginPhoneScreenState extends State<LoginPhoneScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  width: 10,
-                ),
-                SizedBox(
-                  width: 40,
-                  child: TextField(
-                    controller: countryController,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(),
+      body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    width: 10,
                   ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: TextField(
-                    keyboardType: TextInputType.phone,
-                    decoration: const InputDecoration(
-                      hintText: "Enter phone number",
+                  SizedBox(
+                    width: 40,
+                    child: TextField(
+                      controller: countryController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(),
                     ),
-                    onChanged: (value) {
-                      phone = value;
-                    },
                   ),
-                ),
-              ],
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: TextField(
+                      keyboardType: TextInputType.phone,
+                      decoration: const InputDecoration(
+                        hintText: "Enter phone number",
+                      ),
+                      onChanged: (value) {
+                        phone = value;
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 35,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              FirebaseApi.instance.phoneVerify(countryController.text, phone);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const OtpVerificationScreen(),
-                  ));
-            },
-            child: const Text('Send OTP'),
-          ),
-        ],
+            const SizedBox(
+              height: 35,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                FirebaseApi.instance.phoneVerify(countryController.text, phone);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OtpVerificationScreen(),
+                    ));
+              },
+              child: const Text('Send OTP'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:my_first_app/todo_application/todo_model.dart';
 
 class FirebaseApi {
   FirebaseApi._();
@@ -11,13 +13,20 @@ class FirebaseApi {
   User? user;
 
   //SignUP
-  Future<User?> signUp(String email, String password) async {
+  Future<User?> signUp(String email, String password, String name) async {
     try {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
 
       log(credential.user.toString());
       user = credential.user;
+
+      //firebasecloud storage
+
+      if (user != null) {
+        await user?.updateDisplayName(name);
+        createUser(name, user!.email!, user!.uid);
+      }
 
       return credential.user;
     } on FirebaseAuthException catch (e) {
@@ -82,49 +91,72 @@ class FirebaseApi {
     );
   }
 
-//   Future<void> verifyPhoneNumber({
-//     String? phoneNumber,
-//     PhoneMultiFactorInfo? multiFactorInfo,
-//     required PhoneVerificationCompleted verificationCompleted,
-//     required PhoneVerificationFailed verificationFailed,
-//     required PhoneCodeSent codeSent,
-//     required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
-//     @visibleForTesting String? autoRetrievedSmsCodeForTesting,
-//     Duration timeout = const Duration(seconds: 30),
-//     int? forceResendingToken,
-//     MultiFactorSession? multiFactorSession,
-//   }) {
-//     assert(
-//       phoneNumber != null || multiFactorInfo != null,
-//       'Either phoneNumber or multiFactorInfo must be provided.',
-//     );
-//     return _delegate.verifyPhoneNumber(
-//       phoneNumber: phoneNumber,
-//       multiFactorInfo: multiFactorInfo,
-//       timeout: timeout,
-//       forceResendingToken: forceResendingToken,
-//       verificationCompleted: verificationCompleted,
-//       verificationFailed: verificationFailed,
-//       codeSent: codeSent,
-//       codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
-//       // ignore: invalid_use_of_visible_for_testing_member
-//       autoRetrievedSmsCodeForTesting: autoRetrievedSmsCodeForTesting,
-//       multiFactorSession: multiFactorSession,
-//     );
-//   }
-// }
+  //fireBaseCloud Storage
+  Future<void> createTodos(TodoModel model) async {
+    final user = FirebaseAuth.instance.currentUser;
 
-// class _delegate {
-//   static Future<void> verifyPhoneNumber(
-//       {String? phoneNumber,
-//       PhoneMultiFactorInfo? multiFactorInfo,
-//       required Duration timeout,
-//       int? forceResendingToken,
-//       required PhoneVerificationCompleted verificationCompleted,
-//       required PhoneVerificationFailed verificationFailed,
-//       required PhoneCodeSent codeSent,
-//       required PhoneCodeAutoRetrievalTimeout codeAutoRetrievalTimeout,
-//       String? autoRetrievedSmsCodeForTesting,
-//       MultiFactorSession? multiFactorSession}) async {}
-// }
+    CollectionReference todos = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .collection('todos');
+    await todos.add(model.toMap()).then((value) {
+      log(
+        '${value.id} ${value.path} ${value.parent}',
+        name: 'createTodos',
+      );
+    }).catchError((e) {
+      log(e.toString(), name: 'createTodos error');
+    });
+  }
+  //fireBaseCloud Storage-- createuser
+
+  Future<void> createUser(String username, String email, String docId) async {
+    DocumentReference users =
+        FirebaseFirestore.instance.collection('users').doc(docId);
+    await users.set({
+      'user_name': username,
+      'email': email,
+    }).then(
+      (value) {
+        log('sucess', name: 'createUser');
+      },
+    ).catchError(
+      (e) {
+        log(e.toString(), name: 'createUser error');
+      },
+    );
+  }
+
+  //fireBaseCloud Storage-- getTodosuser
+
+  Future<List<QueryDocumentSnapshot<Object?>>> getTodos() async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    CollectionReference todos = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .collection('todos');
+    final res = await todos.get();
+    return res.docs;
+  }
+
+//update todos
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  Future<void> updateTodos() {
+    return users
+        .doc('3')
+        .update({})
+        .then((value) => log("User deleted"))
+        .catchError((error) => log("Failed to update user: $error"));
+  }
+
+//delete  todos
+
+  Future<void> deleteTodos() {
+    return users
+        .doc('ABC123')
+        .delete()
+        .then((value) => log("User Deleted"))
+        .catchError((error) => log("Failed to delete user: $error"));
+  }
 }

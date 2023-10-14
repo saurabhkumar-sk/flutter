@@ -12,11 +12,13 @@ class SignUpScreenFirebase extends StatefulWidget {
 class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
+  final namecontroller = TextEditingController();
 
   @override
   void dispose() {
     passController.dispose();
     emailController.dispose();
+    namecontroller.dispose();
 
     super.dispose();
   }
@@ -35,6 +37,22 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'user is required';
+                }
+                return null;
+              },
+              controller: namecontroller,
+              decoration: const InputDecoration(
+                hintText: 'Username',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             TextFormField(
               validator: (value) {
                 if (value!.isEmpty) {
@@ -61,19 +79,11 @@ class _SignUpScreenFirebaseState extends State<SignUpScreenFirebase> {
             const SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
-                FirebaseApi.instance
-                    .signUp(emailController.text, passController.text);
-                //   .then((value) {
-                // if (value != null) {
-                //   Navigator.pushAndRemoveUntil(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const ToDoScreen(),
-                //     ),
-                //     (route) => false,
-                //   );
-                // }
-                // });
+                FirebaseApi.instance.signUp(
+                  emailController.text,
+                  passController.text,
+                  namecontroller.text,
+                );
               },
               child: const Text('SignUp'),
             ),
