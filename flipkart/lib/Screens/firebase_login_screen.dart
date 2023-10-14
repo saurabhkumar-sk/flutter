@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_app/Screens/login_phone.dart';
 import 'package:my_first_app/Screens/signup_screen.dart';
 import 'package:my_first_app/api_services/firebase_api.dart';
-import 'package:my_first_app/providers/authantification_provider.dart';
-import 'package:provider/provider.dart';
 
 class FirebaseLoginScreen extends StatefulWidget {
   const FirebaseLoginScreen({super.key});
@@ -14,13 +13,6 @@ class FirebaseLoginScreen extends StatefulWidget {
 class _FirebaseLoginScreenState extends State<FirebaseLoginScreen> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
-  late AuthProvider provider;
-
-  @override
-  void initState() {
-    super.initState();
-    provider = Provider.of<AuthProvider>(context, listen: false);
-  }
 
   @override
   void dispose() {
@@ -79,6 +71,7 @@ class _FirebaseLoginScreenState extends State<FirebaseLoginScreen> {
                 border: OutlineInputBorder(),
               ),
             ),
+
             const SizedBox(height: 25),
             ElevatedButton(
               onPressed: () {
@@ -89,6 +82,26 @@ class _FirebaseLoginScreenState extends State<FirebaseLoginScreen> {
               },
               child: const Text('Login'),
             ),
+            const SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                FirebaseApi.instance.signInWithGoogle();
+              },
+              child: const Text('Login With Google'),
+            ),
+            const SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPhoneScreen(),
+                    ));
+              },
+              child: const Text('Login With Phone'),
+            ),
+            const SizedBox(height: 25),
+
             // ElevatedButton(
             //   onPressed: () {
             //     FirebaseAuth.instance.userChanges();

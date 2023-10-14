@@ -71,7 +71,8 @@ class FirebaseApi {
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: countryCode + phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) {
-        log(credential.toString());
+        log("$credential verification Completed",
+            name: 'verificationCompleted');
       },
       verificationFailed: (FirebaseAuthException e) {
         log(e.toString());
