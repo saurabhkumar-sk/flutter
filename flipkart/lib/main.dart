@@ -6,7 +6,7 @@ import 'package:my_first_app/hive/todo.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/consumer_cart_provider.dart';
 import 'package:my_first_app/providers/user_provider.dart';
-import 'package:my_first_app/utils/animation/animation.dart';
+import 'package:my_first_app/animation/hero_animation.dart';
 import 'package:provider/provider.dart';
 
 final messangerkey = GlobalKey<ScaffoldMessengerState>();
@@ -102,7 +102,8 @@ class MyApp extends StatelessWidget {
         // home: const SharedPreScreen(),
         // home: const FirebaseLoginScreen(),
         // home: const InitialScreen(),
-        home: const AnimatedAlignExample(),
+        // home: const AnimatedAlignExample(),
+        home: const HeroWidgetAnimation(),
       ),
     );
   }
