@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/animation/animation_container.dart';
+import 'package:my_first_app/animation/ticker_provider.dart.dart';
 import 'package:my_first_app/firebase_options.dart';
 import 'package:my_first_app/hive/todo.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
@@ -105,7 +105,8 @@ class MyApp extends StatelessWidget {
         //Animation
         // home: const AnimatedAlignExample(),
         // home: const HeroWidgetAnimation(),
-        home:  AnimationContainer(),
+        // home:  AnimationContainer(),
+        home: const TrickerProviderAnimation(),
       ),
     );
   }
