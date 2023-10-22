@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class TrickerProviderAnimation extends StatefulWidget {
   const TrickerProviderAnimation({super.key});
@@ -13,13 +14,18 @@ class TrickerProviderAnimation extends StatefulWidget {
 class _TrickerProviderAnimationState extends State<TrickerProviderAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2))
-          ..forward();
+    controller = AnimationController(
+      vsync: this,
+      // lowerBound: 0,
+      // upperBound: 1,
+      duration: const Duration(seconds: 3),
+    )..forward();
+    _animation = CurvedAnimation(parent: controller, curve: Curves.bounceInOut);
   }
 
   @override
@@ -29,9 +35,11 @@ class _TrickerProviderAnimationState extends State<TrickerProviderAnimation>
         animation: controller,
         child: GestureDetector(
           onTap: () {
-            // controller.reverse();
-            controller.stop();
-            // controller.repeat();
+            controller.reverse();
+            // controller.stop();
+          },
+          onDoubleTap: () {
+            controller.repeat();
           },
           child: Center(
             child: Image.asset(
@@ -42,9 +50,36 @@ class _TrickerProviderAnimationState extends State<TrickerProviderAnimation>
           ),
         ),
         builder: (context, child) {
-          return Transform.rotate(
-            angle: controller.value * 2 * pi,
-            child: child,
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                controller.value.toString(),
+              ),
+              const SizedBox(height: 50),
+              Transform.rotate(
+                angle: controller.value * 2 * pi,
+                child: child,
+              ),
+              const SizedBox(height: 20),
+              //scaletrans
+              GestureDetector(
+                onTap: () {
+                  controller.repeat(reverse: true);
+                },
+                onDoubleTap: () {
+                  controller.stop();
+                },
+                child: ScaleTransition(
+                  scale: _animation,
+                  child: Image.asset(
+                    'assets/images/avatar.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                ),
+              ),
+            ],
           );
         },
       ),
