@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class TrickerProviderAnimation extends StatefulWidget {
   const TrickerProviderAnimation({super.key});
