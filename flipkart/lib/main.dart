@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/animation/animated_crossfade.dart';
-import 'package:my_first_app/animation/ticker_provider.dart.dart';
+import 'package:my_first_app/animation/animated_default_text.dart';
 import 'package:my_first_app/firebase_options.dart';
 import 'package:my_first_app/hive/todo.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
@@ -108,7 +107,8 @@ class MyApp extends StatelessWidget {
         // home: const HeroWidgetAnimation(),
         // home:  AnimationContainer(),
         // home: const TrickerProviderAnimation(),
-        home: const AnimatedCrossFadeScreen(),
+        // home: const AnimatedCrossFadeScreen(),
+        home: const AnimateddefaultText(),
       ),
     );
   }
