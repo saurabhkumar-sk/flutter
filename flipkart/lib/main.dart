@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/animation/list_animation.dart';
+import 'package:my_first_app/animation/staggered_animation.dart';
 import 'package:my_first_app/providers/authantification_provider.dart';
 import 'package:my_first_app/providers/consumer_cart_provider.dart';
 import 'package:my_first_app/providers/user_provider.dart';
@@ -106,7 +106,8 @@ class MyApp extends StatelessWidget {
         // home: const AnimatedCrossFadeScreen(),
         // home: const AnimateddefaultText(),
         // home: const LikeTweenAnimation(),
-        home: const AnimationListScreen(),
+        // home: const AnimationListScreen(),
+        home: const StaggredAnimationScreen(),
       ),
     );
   }
