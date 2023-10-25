@@ -108,6 +108,38 @@ class FirebaseApi {
       log(e.toString(), name: 'createTodos error');
     });
   }
+
+  //Bloc provider(create todos)
+  Future<bool> createTodo(TodoModel model) async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    CollectionReference todos = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .collection('todos');
+
+    model.id - todos.doc().id;
+
+     return await todos.doc(model.id).set(model.toMap()).then((value) {
+      log('added', name: 'fire base api');
+      return true;
+    }).catchError((e) {
+      log(e.toString(), name: 'createTodo');
+      return false;
+    });
+  }
+
+//Delete todos (blocProvider)
+   Future<bool> deleteTodo(String id) async{
+    final user = FirebaseAuth.instance.currentUser;
+    final todoId = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .collection('todos')
+        .doc(id);
+    await todoId.delete();
+    return true;
+  }
   //fireBaseCloud Storage-- createuser
 
   Future<void> createUser(String username, String email, String docId) async {

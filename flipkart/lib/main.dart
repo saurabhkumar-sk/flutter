@@ -1,19 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:my_first_app/animation/staggered_animation.dart';
-import 'package:my_first_app/providers/authantification_provider.dart';
-import 'package:my_first_app/providers/consumer_cart_provider.dart';
-import 'package:my_first_app/providers/user_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_first_app/Screens/initial_screen.dart';
+import 'package:my_first_app/blocProvider/todo_bloc.dart';
+import 'package:my_first_app/firebase_options.dart';
 
 final messangerkey = GlobalKey<ScaffoldMessengerState>();
 
-void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+final navigatorKey = GlobalKey<NavigatorState>();
 
-  //FireBase
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // FireBase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Initialize hive
   // await Hive.initFlutter();
@@ -38,13 +40,17 @@ class MyApp extends StatelessWidget {
         // ChangeNotifierProvider(
         //   create: (context) => CountProvider(),
         //or
-        MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => CartProvider()),
-        ChangeNotifierProvider(create: (context) => AuthProvider()),
-        ChangeNotifierProvider(create: (context) => UserProvider()),
-      ],
+        //   MultiProvider(
+        // providers: [
+        //   ChangeNotifierProvider(create: (context) => CartProvider()),
+        //   ChangeNotifierProvider(create: (context) => AuthProvider()),
+        //   ChangeNotifierProvider(create: (context) => UserProvider()),
+        // ],
+        MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => TodoBloc())],
       child: MaterialApp(
+        navigatorKey: navigatorKey,
+
         scaffoldMessengerKey: messangerkey,
         debugShowCheckedModeBanner: false,
         title: "Clone",
@@ -97,7 +103,7 @@ class MyApp extends StatelessWidget {
         // home: const ApiPaginationUserScreen(),
         // home: const SharedPreScreen(),
         // home: const FirebaseLoginScreen(),
-        // home: const InitialScreen(),
+        home: const InitialScreen(),
         //Animation
         // home: const AnimatedAlignExample(),
         // home: const HeroWidgetAnimation(),
@@ -107,7 +113,7 @@ class MyApp extends StatelessWidget {
         // home: const AnimateddefaultText(),
         // home: const LikeTweenAnimation(),
         // home: const AnimationListScreen(),
-        home: const StaggredAnimationScreen(),
+        // home: const StaggredAnimationScreen(),
       ),
     );
   }
